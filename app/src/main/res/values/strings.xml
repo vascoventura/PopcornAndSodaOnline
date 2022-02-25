@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PopcornAndSodaOnline</string>
+    <string name="username_login">Username</string>
+    <string name="l_ogin">Login</string>
+    <string name="p_assword">Password</string>
+    <string name="_login">LOGIN</string>
+</resources>
