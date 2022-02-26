@@ -4,4 +4,7 @@
     <string name="l_ogin">Login</string>
     <string name="p_assword">Password</string>
     <string name="_login">LOGIN</string>
+    <string name="s_ignup">SignUp</string>
+    <string name="e_mail">Email</string>
+    <string name="n_ome">Nome</string>
 </resources>

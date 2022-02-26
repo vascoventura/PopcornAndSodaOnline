@@ -12,21 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsbold"
-        android:textSize="30sp"
         android:gravity="center"
         android:hint="@string/l_ogin"
         android:textColor="#272626"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayoutUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -41,6 +41,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:fontFamily="@font/poppinsmedium"
+            android:drawableEnd="@drawable/ic_user"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,10 +56,11 @@
         android:hint="@string/p_assword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
+            android:drawableEnd="@drawable/ic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium" />
@@ -73,7 +75,8 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
         android:hint="@string/_login"
-        android:textColor="@color/white"
+        android:backgroundTint="@color/accent"
+        android:textColorHint="@color/white"
         android:textColorLink="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
