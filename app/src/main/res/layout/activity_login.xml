@@ -46,7 +46,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/textInputEditText_Password"
             android:drawableEnd="@drawable/ic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,6 +80,19 @@
         android:textColorLink="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        android:gravity="center"
+        android:fontFamily="@font/poppinsmedium"
+        android:hint="Create an Account? Sign Up"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

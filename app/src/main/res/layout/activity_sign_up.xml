@@ -37,15 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/textInputEditText_Username"
             android:layout_width="match_parent"
-            android:fontFamily="@font/poppinsmedium"
+            android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_user"
-            android:layout_height="wrap_content" />
+            android:fontFamily="@font/poppinsmedium" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,8 +58,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+        <EditText
+            android:id="@+id/textInputEditText_Password"
             android:drawableEnd="@drawable/ic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,17 +79,17 @@
         android:hint="@string/e_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword">
 
-        <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText3"
+        <EditText
+        android:id="@+id/textInputEditText_Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_email"
         android:fontFamily="@font/poppinsmedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -104,8 +105,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText4"
+        <EditText
+            android:id="@+id/textInputEditText_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_nome"
@@ -133,5 +134,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNome" />
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:hint="Already have an account? Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
