@@ -1,101 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/accent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:background="@color/accent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/menu_movies"
-        android:textSize="40sp"
-        android:fontFamily="@font/poppinsmedium"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:textColor="#FFFFFF"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/filmes"
+        android:fontFamily="@font/poppinsmedium"
         android:text="@string/m_ovies"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/menu_actors"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/atores"
-        android:fontFamily="@font/poppinsmedium"
-        android:text="@string/_actors"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_movies" />
+        <Button
+            android:id="@+id/menu_actors"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/atores"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/_actors"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_books" />
 
     <Button
         android:id="@+id/menu_books"
-        android:textSize="40sp"
-        android:fontFamily="@font/poppinsmedium"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:textColor="#FFFFFF"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/livros"
+        android:fontFamily="@font/poppinsmedium"
         android:text="@string/_books"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_actors" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_shows" />
 
     <Button
         android:id="@+id/menu_authors"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/autores"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/_authors"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
-        app:layout_constraintStart_toEndOf="@+id/menu_books"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_productions" />
 
-    <Button
-        android:id="@+id/menu_productions"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/producao"
-        android:fontFamily="@font/poppinsmedium"
-        android:text="@string/_productions"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/menu_actors"
-        app:layout_constraintTop_toBottomOf="@+id/menu_shows" />
+        <Button
+            android:id="@+id/menu_productions"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/producao"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/_productions"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_actors" />
 
     <Button
         android:id="@+id/menu_shows"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/series"
         android:fontFamily="@font/poppinsmedium"
         android:text="@string/_shows"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/menu_movies"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_movies" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
