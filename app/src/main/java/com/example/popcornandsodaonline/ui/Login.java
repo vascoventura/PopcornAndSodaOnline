@@ -1,4 +1,4 @@
-package com.example.popcornandsodaonline;
+package com.example.popcornandsodaonline.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.popcornandsodaonline.adapters.PutData;
+import com.example.popcornandsodaonline.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {

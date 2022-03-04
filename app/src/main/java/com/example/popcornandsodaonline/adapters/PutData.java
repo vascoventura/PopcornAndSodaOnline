@@ -1,4 +1,4 @@
-package com.example.popcornandsodaonline;
+package com.example.popcornandsodaonline.adapters;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

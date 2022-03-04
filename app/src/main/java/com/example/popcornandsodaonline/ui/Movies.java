@@ -1,17 +1,16 @@
-package com.example.popcornandsodaonline;
+package com.example.popcornandsodaonline.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.popcornandsodaonline.R;
+
+public class Movies extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.activity_movies);
     }
 }
