@@ -7,4 +7,13 @@
     <string name="s_ignup">SignUp</string>
     <string name="e_mail">Email</string>
     <string name="n_ome">Nome</string>
+    <string name="c_reate_an_a_ccount_s_ign_u_p">Create an Account? <u>Sign Up</u></string>
+    <string name="signup_message">Already have an account? <u>Login</u></string>
+    <string name="login_message">No account? SignUp</string>
+    <string name="m_ovies">Movies</string>
+    <string name="_shows">SHOWS</string>
+    <string name="_actors">ACTORS</string>
+    <string name="_productions">PRODUCTIONS</string>
+    <string name="_books">BOOKS</string>
+    <string name="_authors">AUTHORS</string>
 </resources>

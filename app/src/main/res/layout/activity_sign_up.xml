@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".SignUp"
+    android:background="@color/accent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
         android:hint="@string/s_ignup"
-        android:textColor="#272626"
+        android:textColorHint="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutUsername"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout_Username_SignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutUsername"
+        android:id="@+id/textInputLayout_Username_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,20 +35,23 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
         android:hint="@string/username_login"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView_SignUp">
 
-        <EditText
-            android:id="@+id/textInputEditText_Username"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_Username_SignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/accent"
             android:drawableEnd="@drawable/ic_user"
-            android:fontFamily="@font/poppinsmedium" />
+            android:fontFamily="@font/poppinsmedium"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPassword"
+        android:id="@+id/textInputLayout_Password_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -54,68 +59,86 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
         android:hint="@string/p_assword"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUsername">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Username_SignUp">
 
-        <EditText
-            android:id="@+id/textInputEditText_Password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_Password_SignUp"
             android:drawableEnd="@drawable/ic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/accent"
+            android:inputType="textPassword"
             android:fontFamily="@font/poppinsmedium" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutEmail"
+        android:id="@+id/textInputLayout_Email_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
+        android:textColorHint="@color/black"
         android:hint="@string/e_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Password_SignUp">
 
-        <EditText
-        android:id="@+id/textInputEditText_Email"
+        <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText_Email_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_email"
         android:fontFamily="@font/poppinsmedium"
+        android:background="@color/accent"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Password_SignUp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutNome"
+        android:id="@+id/textInputLayout_Name_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
+        android:textColorHint="@color/black"
         android:hint="@string/n_ome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Email_SignUp">
 
-        <EditText
-            android:id="@+id/textInputEditText_Name"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_Name_SignUp"
+            android:inputType="textPersonName"
+            android:background="@color/accent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_nome"
             android:fontFamily="@font/poppinsmedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Email_SignUpEmail" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Name_SignUp" />
 
     <Button
         android:id="@+id/button_signup"
@@ -124,17 +147,17 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/accent"
+        android:backgroundTint="@color/black"
         android:fontFamily="@font/poppinsmedium"
         android:hint="@string/s_ignup"
-        android:textColorHint="@color/white"
-        android:textColorLink="#009688"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNome" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Name_SignUp" />
 
 
     <TextView
+        android:id="@+id/signup_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -142,7 +165,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsmedium"
         android:gravity="center"
-        android:hint="Already have an account? Login"
+        android:hint="@string/signup_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_signup" />

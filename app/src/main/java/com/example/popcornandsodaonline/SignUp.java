@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,27 +17,33 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class SignUp extends AppCompatActivity {
 
-    private EditText textInputName;
-    EditText textInputUsername;
-    EditText textInputPassword;
-    EditText textInputEmail;
-
-    Button buttonSignup;
+    private TextInputEditText textInputName;
+    private TextInputEditText textInputUsername;
+    private TextInputEditText textInputPassword;
+    private TextInputEditText textInputEmail;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        
+        textInputPassword = findViewById(R.id.textInputEditText_Password_SignUp);
+        textInputEmail = findViewById(R.id.textInputEditText_Email_SignUp);
+        textInputName = findViewById(R.id.textInputEditText_Name_SignUp);
+        textInputUsername = findViewById(R.id.textInputEditText_Username_SignUp);
+        TextView textViewSignUpMessage = findViewById(R.id.signup_message);
+        progressBar = findViewById(R.id.progress);
+        Button buttonSignup = findViewById(R.id.button_signup);
 
-        textInputName.findViewById(R.id.textInputEditText_Name);
-        textInputUsername.findViewById(R.id.textInputEditText_Username);
-        textInputPassword.findViewById(R.id.textInputEditText_Password);
-        textInputEmail.findViewById(R.id.textInputEditText_Email);
-
-
-        buttonSignup.findViewById(R.id.button_signup);
+        textViewSignUpMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +55,7 @@ public class SignUp extends AppCompatActivity {
                 email = String.valueOf(textInputEmail.getText());
 
                 if(!name.equals("") && !username.equals("") && !password.equals("") && !email.equals("")) {
-                    //Start ProgressBar first (Set visibility VISIBLE)
+                    progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
                         @Override
@@ -70,14 +76,15 @@ public class SignUp extends AppCompatActivity {
                             PutData putData = new PutData("http://192.168.85.37/loginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
+                                    progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if(result.equals("Sign Up Success")){
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(getApplicationContext(), Login.class);
                                         startActivity(intent);
                                         finish();
                                     }else{
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
                                     }
                                 }
                             }
@@ -85,7 +92,7 @@ public class SignUp extends AppCompatActivity {
                         }
                     });
                 } else{
-                    Toast.makeText(getApplicationContext(), "All Fields Are Required!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "All Fields Are Required!", Toast.LENGTH_LONG).show();
                 }
             }
         });
