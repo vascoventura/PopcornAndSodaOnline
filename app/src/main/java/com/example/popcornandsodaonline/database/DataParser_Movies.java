@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -33,6 +35,15 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
         this.gv = gv;
 
     }
+
+    public ArrayList<Movie> getMoviesArrayList() {
+        return moviesArrayList;
+    }
+
+    public void setMoviesArrayList(ArrayList<Movie> moviesArrayList) {
+        this.moviesArrayList = moviesArrayList;
+    }
+
     @Override
     protected Integer doInBackground(Void... voids) {
         this.parseData();
@@ -61,6 +72,15 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
 
             MovieGridAdapter movieGridAdapter = new MovieGridAdapter(this.c, moviesArrayList);
             gv.setAdapter(movieGridAdapter);
+
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Movie movie = moviesArrayList.get(i);
+                    long id_movie = movie.getId_movie();
+                    Toast.makeText(c, String.valueOf(id_movie), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 

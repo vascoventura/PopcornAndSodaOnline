@@ -23,6 +23,7 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
     String downloadData;
     Activity activity;
 
+
     public Downloader_Movies(Context c, Activity activity, String urlAdress, GridView gv) {
         this.c = c;
         this.activity = activity;
