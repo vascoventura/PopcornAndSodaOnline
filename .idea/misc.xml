@@ -10,10 +10,12 @@
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/drawable/ic_nome.xml" value="0.189" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/drawable/ic_user.xml" value="0.189" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout-v21/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_books.xml" value="0.1" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_main.xml" value="0.22395326192794549" />
-        <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_movies.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_movies.xml" value="0.10377358490566038" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/activity_sign_up.xml" value="0.2625" />
+        <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/item_books_grid.xml" value="0.15" />
         <entry key="..\:/Users/vasco/AndroidStudioProjects/PopcornAndSodaOnline/app/src/main/res/layout/item_movies_grid.xml" value="0.33" />
       </map>
     </option>

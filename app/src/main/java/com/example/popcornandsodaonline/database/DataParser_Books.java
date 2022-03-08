@@ -7,9 +7,10 @@ import android.os.AsyncTask;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.popcornandsodaonline.adapters.BookGridAdapter;
 import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
+import com.example.popcornandsodaonline.models.Book;
 import com.example.popcornandsodaonline.models.Movie;
-import com.example.popcornandsodaonline.ui.Movies;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,16 +18,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
     ProgressDialog pd;
     Context c;
     int resultado = 0;
     String jsonData;
-    ArrayList<Movie> moviesArrayList = new ArrayList<>();
+    ArrayList<Book> booksArrayList = new ArrayList<>();
     private Activity activity;
     private GridView gv;
 
-    public DataParser_Movies(Context c, String jsonData, Activity activity, GridView gv){
+    public DataParser_Books(Context c, String jsonData, Activity activity, GridView gv){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -59,8 +60,9 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
         }else{
             Toast.makeText(c, "Parsed Successfully", Toast.LENGTH_LONG).show();
 
-            MovieGridAdapter movieGridAdapter = new MovieGridAdapter(this.c, moviesArrayList);
-            gv.setAdapter(movieGridAdapter);
+
+            BookGridAdapter bookGridAdapter = new BookGridAdapter(this.c, booksArrayList);
+            gv.setAdapter(bookGridAdapter);
         }
     }
 
@@ -69,41 +71,41 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
             JSONArray jsonArray = new JSONArray(jsonData);
             JSONObject jsonObject = null;
 
-            moviesArrayList.clear();
-            Movie movie = null;
+            booksArrayList.clear();
+            Book book = null;
 
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                int id = jsonObject.getInt("id_movie");
-                String name = jsonObject.getString("name_movie");
+                int id = jsonObject.getInt("id_book");
+                String name = jsonObject.getString("name_book");
                 float rating = (float) jsonObject.getDouble("rating");
-                int year = jsonObject.getInt("year_movie");
-                String description = jsonObject.getString("description_movie");
-                String trailer_link = jsonObject.getString("trailer_link");
-                String cover_movie = jsonObject.getString("cover_movie");
+                int year = jsonObject.getInt("year_book");
+                String description = jsonObject.getString("description_book");
+                String cover_book = jsonObject.getString("cover_book");
+                String background_book = jsonObject.getString("background_book");
 
-                movie = new Movie();
-                movie.setId_movie(id);
-                movie.setName_movie(name);
-                movie.setRating_movie(rating);
-                movie.setYear_movie(year);
-                movie.setDescription_movie(description);
-                movie.setLink_trailer_filme(trailer_link);
-                movie.setCover_image_movie(cover_movie);
+                book = new Book();
+                book.setId_book(id);
+                book.setName_book(name);
+                book.setRating_book(rating);
+                book.setYear_book(year);
+                book.setDescription_book(description);
+                book.setCover_book(cover_book);
+                book.setBackground_book(background_book);
 
                 System.out.println("");
-                System.out.println("Filme: " + String.valueOf(i + 1));
+                System.out.println("Livro: " + String.valueOf(i + 1));
                 System.out.println("");
                 System.out.println(id);
                 System.out.println(name);
                 System.out.println(rating);
                 System.out.println(year);
                 System.out.println(description);
-                System.out.println(trailer_link);
-                System.out.println(cover_movie);
+                System.out.println(cover_book);
+                System.out.println(background_book);
 
-                moviesArrayList.add(movie);
+                booksArrayList.add(book);
 
                 resultado = 1;
 
@@ -117,3 +119,4 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
         return resultado;
     }
 }
+

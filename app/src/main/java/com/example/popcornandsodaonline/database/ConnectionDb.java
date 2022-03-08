@@ -14,6 +14,9 @@ public class ConnectionDb {
     public static String PHP_SIGNUP_FILE = "signup.php";
     public static final String PHP_MOVIES_FILE = "movies_select.php";
     public static final String PHP_ACTORS_FILE = "actors_select_php";
+    public static final String PHP_SHOWS_FILE = "tvshows_select.php";
+    public static final String PHP_BOOKS_FILE = "books_select.php";
+
 
 
 

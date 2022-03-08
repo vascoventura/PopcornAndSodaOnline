@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
-public class Downloader extends AsyncTask<Void, Void, String> {
+public class Downloader_Books extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
@@ -23,7 +23,7 @@ public class Downloader extends AsyncTask<Void, Void, String> {
     String downloadData;
     Activity activity;
 
-    public Downloader(Context c, Activity activity, String urlAdress, GridView gv) {
+    public Downloader_Books(Context c, Activity activity, String urlAdress, GridView gv) {
         this.c = c;
         this.activity = activity;
         this.urlAddress = urlAdress;
@@ -58,12 +58,11 @@ public class Downloader extends AsyncTask<Void, Void, String> {
         if(s==null){
             Toast.makeText(c,"Unable to Retrieve, null Returned!", Toast.LENGTH_LONG).show();
         } else{
-
             Toast.makeText(c,"Success!", Toast.LENGTH_LONG).show();
 
             //call parser
-            DataParser_Movies parser_movies = new DataParser_Movies(c, downloadData, this.activity, gv);
-            parser_movies.execute();
+            DataParser_Books parser_books = new DataParser_Books(c, downloadData, this.activity, gv);
+            parser_books.execute();
         }
     }
 
@@ -91,9 +90,6 @@ public class Downloader extends AsyncTask<Void, Void, String> {
             } else {
                 return null;
             }
-
-
-
             this.downloadData = response.toString();
             System.out.println("downloader: " + downloadData);
             return downloadData;
@@ -108,9 +104,7 @@ public class Downloader extends AsyncTask<Void, Void, String> {
                     e.printStackTrace();
                 }
             }
-
             return null;
         }
     }
-
 }
