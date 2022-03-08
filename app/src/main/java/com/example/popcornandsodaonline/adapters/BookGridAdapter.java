@@ -65,7 +65,7 @@ public class BookGridAdapter extends BaseAdapter implements View.OnClickListener
     public View getView(int position, View view, ViewGroup parent) {
         if(view==null){
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            
+
             view = inflater.inflate(R.layout.item_movies_grid, null);
 
             TextView bookName = (TextView) view.findViewById(R.id.item_movies_grid_name);

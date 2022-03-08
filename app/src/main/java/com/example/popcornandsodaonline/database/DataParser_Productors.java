@@ -7,9 +7,9 @@ import android.os.AsyncTask;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
+import com.example.popcornandsodaonline.adapters.ProductorGridAdapter;
 import com.example.popcornandsodaonline.adapters.ShowGridAdapter;
-import com.example.popcornandsodaonline.models.Movie;
+import com.example.popcornandsodaonline.models.Productor;
 import com.example.popcornandsodaonline.models.Show;
 
 import org.json.JSONArray;
@@ -18,16 +18,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class DataParser_Shows extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
     ProgressDialog pd;
     Context c;
     int resultado = 0;
     String jsonData;
-    ArrayList<Show> showsArrayList = new ArrayList<>();
+    ArrayList<Productor> productorsArrayList = new ArrayList<>();
     private Activity activity;
     private GridView gv;
 
-    public DataParser_Shows(Context c, String jsonData, Activity activity, GridView gv){
+    public DataParser_Productors(Context c, String jsonData, Activity activity, GridView gv){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -60,8 +60,8 @@ public class DataParser_Shows extends AsyncTask<Void, Void, Integer> {
         }else{
             Toast.makeText(c, "Parsed Successfully", Toast.LENGTH_LONG).show();
 
-            ShowGridAdapter showGridAdapter = new ShowGridAdapter(this.c, showsArrayList);
-            gv.setAdapter(showGridAdapter);
+            ProductorGridAdapter productorGridAdapter = new ProductorGridAdapter(this.c, productorsArrayList);
+            gv.setAdapter(productorGridAdapter);
         }
     }
 
@@ -70,44 +70,37 @@ public class DataParser_Shows extends AsyncTask<Void, Void, Integer> {
             JSONArray jsonArray = new JSONArray(jsonData);
             JSONObject jsonObject = null;
 
-            showsArrayList.clear();
-            Show show = null;
+            productorsArrayList.clear();
+            Productor productor = null;
 
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                int id = jsonObject.getInt("id_show");
-                String name = jsonObject.getString("name_show");
-                float rating = (float) jsonObject.getDouble("rating");
-                int year_begin = jsonObject.getInt("begin_year_show");
-//                int year_end = jsonObject.getInt("end_year_show");
-                String description = jsonObject.getString("description_show");
-                String trailer_link = jsonObject.getString("trailer_link");
-                String cover_movie = jsonObject.getString("cover_show");
+                int id = jsonObject.getInt("id_production");
+                String name = jsonObject.getString("name_productor");
+                String nationality = jsonObject.getString("nationality");
+                String description = jsonObject.getString("description");
+                String cover_productor = jsonObject.getString("cover_productor");
 
-                show = new Show();
-                show.setId_show(id);
-                show.setName_show(name);
-                show.setRating(rating);
-                show.setBegin_year(year_begin);
-  //              show.setEnd_year(year_end);
-                show.setDescription_show(description);
-                show.setTrailer_show(trailer_link);
-                show.setCover_show(cover_movie);
+                productor = new Productor();
+                productor.setId_productor(id);
+                productor.setName_productor(name);
+                productor.setNationality(nationality);
+                productor.setDescription(description);
+                productor.setCover_productor(cover_productor);
+
 
                 System.out.println("");
-                System.out.println("Serie: " + String.valueOf(i + 1));
+                System.out.println("Productor: " + String.valueOf(i + 1));
                 System.out.println("");
                 System.out.println(id);
                 System.out.println(name);
-                System.out.println(rating);
-                System.out.println(year_begin);
-    //          System.out.println(year_end);
+                System.out.println(nationality);
                 System.out.println(description);
-                System.out.println(trailer_link);
-                System.out.println(cover_movie);
+                System.out.println(cover_productor);
 
-                showsArrayList.add(show);
+
+                productorsArrayList.add(productor);
 
                 resultado = 1;
 

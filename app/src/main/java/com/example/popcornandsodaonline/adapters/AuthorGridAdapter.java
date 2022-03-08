@@ -1,52 +1,45 @@
 package com.example.popcornandsodaonline.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
-import com.example.popcornandsodaonline.models.Movie;
+import com.example.popcornandsodaonline.models.Author;
+import com.example.popcornandsodaonline.models.Book;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MovieGridAdapter extends BaseAdapter implements View.OnClickListener {
+public class AuthorGridAdapter extends BaseAdapter implements View.OnClickListener {
 
     Context context;
 
-    private ArrayList<Movie> moviesList;
+    private ArrayList<Author> authorsList;
 
     LayoutInflater inflater;
 
-    public MovieGridAdapter(Context context, ArrayList<Movie> moviesList) {
+    public AuthorGridAdapter(Context context, ArrayList<Author> authorsList) {
         this.context = context;
-        this.moviesList = moviesList;
+        this.authorsList = authorsList;
     }
 
 
     @Override
     public int getCount() {
-        return moviesList.size();
+        return authorsList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return moviesList.get(position);
+        return authorsList.get(position);
     }
 
     @Override
@@ -56,8 +49,8 @@ public class MovieGridAdapter extends BaseAdapter implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        System.out.println("aqui!");
-        System.out.println("ID DO FILME: " + moviesList.get(view.getId()).getId_movie());
+
+        System.out.println("ID DO AUTHOR: " + authorsList.get(view.getId()).getId_author());
 
         Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
         /*long idFilme = row.getId();
@@ -70,24 +63,25 @@ public class MovieGridAdapter extends BaseAdapter implements View.OnClickListene
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        if(view==null){
+        if (view == null) {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.item_movies_grid, null);
 
-            TextView nomeFilme = (TextView) view.findViewById(R.id.item_movies_grid_name);
-            ImageView imageCover = (ImageView) view.findViewById(R.id.item_movies_grid_cover);
+            view = inflater.inflate(R.layout.item_authors_grid, null);
 
-            final Movie movie = moviesList.get(position);
-            try{
-                URL imageurl = new URL(movie.getCover_image_movie());
+            TextView authorName = (TextView) view.findViewById(R.id.item_authors_grid_name);
+            ImageView imageCover = (ImageView) view.findViewById(R.id.item_authors_grid_cover);
+
+            final Author author = authorsList.get(position);
+            try {
+                URL imageurl = new URL(author.getCover_author());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
 
-            nomeFilme.setText(movie.getName_movie());
+            authorName.setText(author.getName_author());
 
-            view.setTag(movie);
+            view.setTag(author);
 
         }
 
