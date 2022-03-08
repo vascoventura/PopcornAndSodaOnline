@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.popcornandsodaonline.adapters.PutData;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {
@@ -60,7 +61,7 @@ public class Login extends AppCompatActivity {
                     data[0] = username;
                     data[1] = password;
 
-                    PutData putData = new PutData("http://192.168.85.37/loginRegister/login.php", "POST", field, data);
+                    PutData putData = new PutData(ConnectionDb.CONECTIONIP + ConnectionDb.PHP_DIRECTORY + ConnectionDb.PHP_LOGIN_FILE, "POST", field, data);
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
                             progressBar.setVisibility(View.GONE);

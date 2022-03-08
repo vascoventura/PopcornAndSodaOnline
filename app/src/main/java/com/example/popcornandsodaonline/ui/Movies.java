@@ -3,14 +3,44 @@ package com.example.popcornandsodaonline.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.GridView;
 
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.adapters.FetchData;
+import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
+import com.example.popcornandsodaonline.database.ConnectionDb;
+import com.example.popcornandsodaonline.database.Downloader;
+import com.example.popcornandsodaonline.models.Movie;
+
+import java.util.ArrayList;
 
 public class Movies extends AppCompatActivity {
+
+
+    private ArrayList<Movie> movieList = new ArrayList<>();
+    private MovieGridAdapter movieGridAdapter;
+
+    public ArrayList<Movie> getMovieList() {
+        return movieList;
+    }
+
+    public void setMovieList(ArrayList<Movie> movieList) {
+        this.movieList = movieList;
+    }
+
+    String url = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_DIRECTORY + ConnectionDb.PHP_MOVIES_FILE;
+    GridView gridViewMovies;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+
+
+        GridView gridViewMovies = (GridView) findViewById(R.id.movies_grid);
+        new Downloader(Movies.this, this, url, gridViewMovies).execute();
+
+
     }
 }

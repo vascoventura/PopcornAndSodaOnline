@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.popcornandsodaonline.adapters.PutData;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SignUp extends AppCompatActivity {
@@ -74,7 +75,7 @@ public class SignUp extends AppCompatActivity {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://192.168.85.37/loginRegister/signup.php", "POST", field, data);
+                            PutData putData = new PutData(ConnectionDb.CONECTIONIP + ConnectionDb.PHP_DIRECTORY + ConnectionDb.PHP_SIGNUP_FILE, "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
