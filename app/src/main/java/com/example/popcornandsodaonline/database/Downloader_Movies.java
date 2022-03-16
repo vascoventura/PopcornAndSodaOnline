@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import androidx.viewpager.widget.ViewPager;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,6 +24,7 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
     GridView gv;
     String downloadData;
     Activity activity;
+    ViewPager vp;
 
 
     public Downloader_Movies(Context c, Activity activity, String urlAdress, GridView gv) {
@@ -29,6 +32,13 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
         this.activity = activity;
         this.urlAddress = urlAdress;
         this.gv = gv;
+    }
+
+    public Downloader_Movies(Context c, Activity activity, String urlAdress, ViewPager vp) {
+        this.c = c;
+        this.activity = activity;
+        this.urlAddress = urlAdress;
+        this.vp = vp;
     }
 
     @Override
@@ -63,6 +73,7 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
 
             //call parser
             DataParser_Movies parser_movies = new DataParser_Movies(c, downloadData, this.activity, gv);
+
             parser_movies.execute();
         }
     }

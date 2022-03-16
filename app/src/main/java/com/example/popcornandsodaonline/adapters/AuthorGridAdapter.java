@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Author;
 import com.example.popcornandsodaonline.models.Book;
 
@@ -73,7 +74,7 @@ public class AuthorGridAdapter extends BaseAdapter implements View.OnClickListen
 
             final Author author = authorsList.get(position);
             try {
-                URL imageurl = new URL(author.getCover_author());
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + author.getCover_author());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

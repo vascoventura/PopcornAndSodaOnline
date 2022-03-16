@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Actor;
 import com.example.popcornandsodaonline.models.Productor;
 
@@ -73,7 +74,7 @@ public class ProductorGridAdapter extends BaseAdapter implements View.OnClickLis
 
             final Productor productor = productorsList.get(position);
             try{
-                URL imageurl = new URL(productor.getCover_productor());
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + productor.getCover_productor());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

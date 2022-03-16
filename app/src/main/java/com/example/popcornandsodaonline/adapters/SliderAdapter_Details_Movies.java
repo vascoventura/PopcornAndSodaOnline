@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -39,7 +40,7 @@ public class SliderAdapter_Details_Movies extends PagerAdapter {
         ImageView slideImage = slideLayout.findViewById(R.id.slider_img);
 
         try{
-            URL imageurl = new URL(mList.get(position));
+            URL imageurl = new URL(ConnectionDb.CONECTIONIP + mList.get(position));
             Glide.with(context).load(imageurl).into(slideImage);
         } catch (MalformedURLException e) {
             e.printStackTrace();

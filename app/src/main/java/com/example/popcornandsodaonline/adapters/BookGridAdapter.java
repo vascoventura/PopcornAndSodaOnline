@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Book;
 import com.example.popcornandsodaonline.models.Movie;
 
@@ -73,7 +74,7 @@ public class BookGridAdapter extends BaseAdapter implements View.OnClickListener
 
             final Book book = booksList.get(position);
             try{
-                URL imageurl = new URL(book.getCover_book());
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + book.getCover_book());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

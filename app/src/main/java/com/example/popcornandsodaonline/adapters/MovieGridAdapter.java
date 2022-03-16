@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Movie;
 
 import java.net.MalformedURLException;
@@ -73,7 +74,7 @@ public class MovieGridAdapter extends BaseAdapter implements View.OnClickListene
 
             final Movie movie = moviesList.get(position);
             try{
-                URL imageurl = new URL(movie.getCover_image_movie());
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + movie.getCover_image_movie());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

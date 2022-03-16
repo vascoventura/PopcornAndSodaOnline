@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
 import com.example.popcornandsodaonline.models.Movie;
 import com.example.popcornandsodaonline.ui.Details_Movies;
@@ -37,6 +39,7 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
     ArrayList<Movie> moviesArrayList = new ArrayList<>();
     private Activity activity;
     private GridView gv;
+    private ViewPager vp;
 
 
 
@@ -47,6 +50,13 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
         this.activity = activity;
         this.gv = gv;
 
+    }
+
+    public DataParser_Movies(Context c, String jsonData, Activity activity, ViewPager vp){
+        this.c = c;
+        this.jsonData = jsonData;
+        this.activity = activity;
+        this.vp = vp;
     }
 
     @Override

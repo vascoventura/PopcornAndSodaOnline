@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
+import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Movie;
 import com.example.popcornandsodaonline.models.Show;
 
@@ -72,7 +73,7 @@ public class ShowGridAdapter extends BaseAdapter implements View.OnClickListener
 
             final Show show = showsList.get(position);
             try{
-                URL imageurl = new URL(show.getCover_show());
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + show.getCover_show());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

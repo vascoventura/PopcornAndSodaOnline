@@ -32,7 +32,7 @@ public class Details_Movies extends AppCompatActivity {
 
     ViewPager sliderpager;
 
-    String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_DIRECTORY + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
+    String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class Details_Movies extends AppCompatActivity {
             textViewDescricao.setText(descriptionMovie);
 
             try{
-                URL imageurl = new URL(coverMovie);
+                URL imageurl = new URL(ConnectionDb.CONECTIONIP + coverMovie);
                 Glide.with(this.getApplicationContext()).load(imageurl).into(imageViewCapa);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
