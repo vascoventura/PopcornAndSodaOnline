@@ -60,12 +60,6 @@ public class MovieGridAdapter extends BaseAdapter implements View.OnClickListene
         System.out.println("ID DO FILME: " + moviesList.get(view.getId()).getId_movie());
 
         Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
-        /*long idFilme = row.getId();
-        Context context = view.getContext();
-        Intent intent = new Intent();
-        //intent.setClass(context, DetailActivityMovie.class);
-        intent.putExtra(ID_FILME, idFilme);
-        context.startActivity(intent);*/
     }
 
     @Override

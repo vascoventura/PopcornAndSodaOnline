@@ -19,10 +19,6 @@ import java.util.ArrayList;
 public class Movies extends AppCompatActivity {
     private ArrayList<Movie> movieList = new ArrayList<>();
 
-    public void setMovieList(ArrayList<Movie> movieList) {
-        this.movieList = movieList;
-    }
-
     String url = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_DIRECTORY + ConnectionDb.PHP_MOVIES_FILE;
 
     @Override
@@ -31,6 +27,5 @@ public class Movies extends AppCompatActivity {
         setContentView(R.layout.activity_movies);
         GridView gridViewMovies = (GridView) findViewById(R.id.movies_grid);
         new Downloader_Movies(Movies.this, this, url, gridViewMovies).execute();
-
     }
 }

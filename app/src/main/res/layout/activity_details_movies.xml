@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageViewFundoFilme"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/sliderPage_Movies"
             android:layout_width="match_parent"
             android:layout_height="309dp"
             android:scaleType="centerCrop"
@@ -30,11 +30,11 @@
             android:layout_height="0dp"
             android:background="#00C08A8A"
             android:src="@drawable/gradient"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewFundoFilme"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewFundoFilme"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Movies"
+            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Movies"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imageViewFundoFilme"
-            app:layout_constraintTop_toTopOf="@+id/imageViewFundoFilme"
+            app:layout_constraintStart_toStartOf="@+id/sliderPage_Movies"
+            app:layout_constraintTop_toTopOf="@+id/sliderPage_Movies"
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -59,9 +59,9 @@
             android:layout_marginLeft="16dp"
             android:scaleType="centerCrop"
             android:transitionName="=sharedName"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewFundoFilme"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Movies"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewFundoFilme"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Movies"
             app:srcCompat="@drawable/filmes"
             tools:targetApi="lollipop" />
 
@@ -81,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@+id/botao_visto" />
 
         <TextView
-            android:id="@+id/detail_movie_tipo"
+            android:id="@+id/detail_movie_cathegory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -157,7 +157,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_tipo" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_cathegory" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/botao_favorito"
@@ -168,9 +168,9 @@
             android:focusable="true"
             android:src="@drawable/ic_favorite"
             app:backgroundTint="#00BCD4"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewFundoFilme"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Movies"
             app:layout_constraintStart_toEndOf="@+id/imageViewCapaFilme"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewFundoFilme"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Movies"
             tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck"
             android:contentDescription="TODO" />
 

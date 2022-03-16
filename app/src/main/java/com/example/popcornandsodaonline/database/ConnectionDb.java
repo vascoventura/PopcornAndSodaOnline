@@ -6,8 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ConnectionDb {
-    public static String CONECTIONIP = "http://192.168.85.37/";
-    public static String PHP_DIRECTORY = "popcornsodaDBPHP/";
+    public static String CONECTIONIP = "https://popcornsoda.000webhostapp.com/";
+    public static String PHP_DIRECTORY = "";
     public static final String IMAGES_DIRECTORY = "images/";
 
     public static String PHP_LOGIN_FILE = "login.php";
@@ -18,9 +18,7 @@ public class ConnectionDb {
     public static final String PHP_BOOKS_FILE = "books_select.php";
     public static final String PHP_AUTHORS_FILE = "authors_select.php";
     public static final String PHP_PRODUCTORS_FILE = "productors_select.php";
-
-
-
+    public static final String PHP_BACKGROUND_MOVIES_FILE = "movie_back_select.php/?id_filme=";
 
     public static HttpURLConnection connect(String urlAddress){
 

@@ -3,6 +3,7 @@ package com.example.popcornandsodaonline.database;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
 import com.example.popcornandsodaonline.models.Movie;
-import com.example.popcornandsodaonline.ui.Movies;
+import com.example.popcornandsodaonline.ui.Details_Movies;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,13 +21,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
+    public static final String ID_MOVIE = "ID_MOVIE";
+    public static final String NAME_MOVIE = "NAME_MOVIE";
+    public static final String YEAR_MOVIE = "YEAR_MOVIE";
+    public static final String DESCRIPTION_MOVIE = "DESCRIPTION_MOVIE";
+    public static final String TRAILER_MOVIE = "TRAILER_MOVIE";
+    public static final String COVER_MOVIE = "COVER_MOVIE";
+    public static final String RATING_MOVIE = "RATING_MOVIE";
+
+
     ProgressDialog pd;
-    Context c;
+    public Context c;
     int resultado = 0;
     String jsonData;
     ArrayList<Movie> moviesArrayList = new ArrayList<>();
     private Activity activity;
     private GridView gv;
+
+
+
 
     public DataParser_Movies(Context c, String jsonData, Activity activity, GridView gv){
         this.c = c;
@@ -34,14 +47,6 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
         this.activity = activity;
         this.gv = gv;
 
-    }
-
-    public ArrayList<Movie> getMoviesArrayList() {
-        return moviesArrayList;
-    }
-
-    public void setMoviesArrayList(ArrayList<Movie> moviesArrayList) {
-        this.moviesArrayList = moviesArrayList;
     }
 
     @Override
@@ -78,7 +83,29 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Movie movie = moviesArrayList.get(i);
                     long id_movie = movie.getId_movie();
-                    Toast.makeText(c, String.valueOf(id_movie), Toast.LENGTH_SHORT).show();
+                    String name_movie = movie.getName_movie();
+                    float rating = (float) movie.getRating_movie();
+                    int year = movie.getYear_movie();
+                    String description = movie.getDescription_movie();
+                    String trailer_link = movie.getLink_trailer_filme();
+                    String cover_movie = movie.getCover_image_movie();
+
+                    Toast.makeText(c, name_movie, Toast.LENGTH_SHORT).show();
+
+                    Context context = view.getContext();
+
+                    Intent intent = new Intent();
+                    Details_Movies dm = new Details_Movies();
+                    intent.setClass(context, dm.getClass());
+
+                    intent.putExtra(ID_MOVIE, id_movie);
+                    intent.putExtra(NAME_MOVIE, name_movie);
+                    intent.putExtra(YEAR_MOVIE, String.valueOf(year));
+                    intent.putExtra(DESCRIPTION_MOVIE, description);
+                    intent.putExtra(TRAILER_MOVIE, trailer_link);
+                    intent.putExtra(COVER_MOVIE, cover_movie);
+                    intent.putExtra(RATING_MOVIE, String.valueOf(rating));
+                    context.startActivity(intent);
                 }
             });
         }
