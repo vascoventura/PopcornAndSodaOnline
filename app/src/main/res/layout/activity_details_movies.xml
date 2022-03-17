@@ -35,7 +35,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/sliderPage_Movies"
             app:layout_constraintTop_toTopOf="@+id/sliderPage_Movies"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="TODO" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/detail_movie_trailer"
@@ -56,13 +58,13 @@
             android:layout_width="137dp"
             android:layout_height="188dp"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:scaleType="centerCrop"
             android:transitionName="=sharedName"
             app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Movies"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sliderPage_Movies"
             app:srcCompat="@drawable/filmes"
+            tools:ignore="ImageContrastCheck"
             tools:targetApi="lollipop" />
 
         <TextView
@@ -84,11 +86,10 @@
             android:id="@+id/detail_movie_cathegory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/detail_movie_autor"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_autor" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewCapaFilme"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_movie_classificacao" />
 
         <ImageView
             android:id="@+id/imageView_movie_classificacao"
@@ -125,17 +126,6 @@
             tools:text="4.9" />
 
         <TextView
-            android:id="@+id/detail_movie_autor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_movie_classificacao" />
-
-        <TextView
             android:id="@+id/detail_movie_ano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,15 +154,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
+            android:contentDescription="TODO"
             android:focusable="true"
             android:src="@drawable/ic_favorite"
             app:backgroundTint="#00BCD4"
             app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Movies"
             app:layout_constraintStart_toEndOf="@+id/imageViewCapaFilme"
             app:layout_constraintTop_toBottomOf="@+id/sliderPage_Movies"
-            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck"
-            android:contentDescription="TODO" />
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/botao_visto"
@@ -189,38 +178,6 @@
             tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck"
             android:contentDescription="TODO" />
 
-        <ImageView
-            android:id="@+id/imageViewAutor"
-            android:layout_width="170dp"
-            android:layout_height="210dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView19"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAutor"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAutor"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAutor"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAutor"
-            app:srcCompat="@drawable/gradient" />
-
-        <TextView
-            android:id="@+id/textViewNomeAutor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAutor"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAutor"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAutor" />
-
         <TextView
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
@@ -232,6 +189,33 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/detail_movie_descricao"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_descricao" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/production_movie_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Cast"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/production_movie_rv"
+            app:layout_constraintTop_toBottomOf="@+id/production_movie_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

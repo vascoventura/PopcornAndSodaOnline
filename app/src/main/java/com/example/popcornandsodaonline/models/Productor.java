@@ -17,6 +17,11 @@ public class Productor {
         this.cover_productor = cover_productor;
     }
 
+    public Productor(String name_productor, String cover_productor) {
+        this.name_productor = name_productor;
+        this.cover_productor = cover_productor;
+    }
+
     public int getId_productor() {
         return id_productor;
     }
