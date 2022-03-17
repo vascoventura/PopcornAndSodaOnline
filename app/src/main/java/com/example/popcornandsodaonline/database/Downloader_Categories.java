@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
-
-import com.example.popcornandsodaonline.models.Movie;
-import com.example.popcornandsodaonline.ui.Details_Movies;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -19,28 +15,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
+public class Downloader_Categories extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
     ProgressDialog pd;
     String downloadData;
     Activity activity;
-    ViewPager sliderpager;
+    TextView textView;
 
 
-    public Downloader_Detail_Movies(Context c, Activity activity, String urlAdress, ViewPager sliderpager) {
+    public Downloader_Categories(Context c, Activity activity, String urlAdress, TextView textView) {
         this.c = c;
         this.activity = activity;
         this.urlAddress = urlAdress;
-        this.sliderpager = sliderpager;
+        this.textView = textView;
     }
 
     @Override
-        protected void onPreExecute() {
+    protected void onPreExecute() {
         super.onPreExecute();
 
         pd = new ProgressDialog(c);
@@ -50,13 +44,13 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
 
     }
 
-        @Override
-        protected String doInBackground(Void... voids) {
+    @Override
+    protected String doInBackground(Void... voids) {
         System.out.println(downloadData);
         return this.downloadData();
     }
-        @Override
-        protected void onPostExecute(String s) {
+    @Override
+    protected void onPostExecute(String s) {
         super.onPostExecute(this.downloadData());
 
         pd.dismiss();
@@ -64,17 +58,17 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
         s = this.downloadData;
 
         if(s==null){
-            Toast.makeText(c,"Unable to Retrieve, null Returned!", Toast.LENGTH_LONG).show();
+            Toast.makeText(c,"Unable to Retrieve Categories!", Toast.LENGTH_LONG).show();
         } else{
-            Toast.makeText(c,"Success!", Toast.LENGTH_LONG).show();
+            Toast.makeText(c,"Categories retrieved Success!", Toast.LENGTH_LONG).show();
 
             //call parser
-            DataParser_Detail_Movies parser_movies = new DataParser_Detail_Movies(c, downloadData, this.activity, sliderpager);
-            parser_movies.execute();
+            DataParser_Categories parser_categories = new DataParser_Categories(c, downloadData, this.activity, textView);
+            parser_categories.execute();
         }
     }
 
-        private String downloadData() {
+    private String downloadData() {
         HttpURLConnection con = ConnectionDb.connect(urlAddress);
         System.out.println("CONEXAO " + con );
         if (con == null) {
@@ -116,4 +110,3 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
         }
     }
 }
-

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.database.DataParser_Movies;
+import com.example.popcornandsodaonline.database.Downloader_Categories;
 import com.example.popcornandsodaonline.database.Downloader_Detail_Movies;
 import com.example.popcornandsodaonline.models.Movie;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,7 +33,9 @@ public class Details_Movies extends AppCompatActivity {
 
     ViewPager sliderpager;
 
+    //URL´s
     String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
+    String url_categories = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_CATEGORY_NAME_MOVIE_FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +100,7 @@ public class Details_Movies extends AppCompatActivity {
             new Downloader_Detail_Movies(Details_Movies.this,this, url_backgrounds + idFilme, sliderpager).execute();
 
             //Carregar as categorias
-            //new Downloader_Detail_Movies(Details_Movies.this,this, url_backgrounds + idFilme, sliderpager).execute();
+            new Downloader_Categories(Details_Movies.this,this, url_categories + idFilme, textViewTipo).execute();
 
             //Carregar os produtores
 

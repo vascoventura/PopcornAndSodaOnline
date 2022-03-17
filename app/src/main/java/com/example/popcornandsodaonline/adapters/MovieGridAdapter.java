@@ -57,10 +57,7 @@ public class MovieGridAdapter extends BaseAdapter implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        System.out.println("aqui!");
         System.out.println("ID DO FILME: " + moviesList.get(view.getId()).getId_movie());
-
-        Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
     }
 
     @Override

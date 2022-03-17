@@ -19,6 +19,7 @@ public class ConnectionDb {
     public static final String PHP_AUTHORS_FILE = "authors_select.php";
     public static final String PHP_PRODUCTORS_FILE = "productors_select.php";
     public static final String PHP_BACKGROUND_MOVIES_FILE = "movie_back_select.php/?id_filme=";
+    public static final String PHP_CATEGORY_NAME_MOVIE_FILE = "category_name_movie.php/?id_filme=";
 
     public static HttpURLConnection connect(String urlAddress){
 
