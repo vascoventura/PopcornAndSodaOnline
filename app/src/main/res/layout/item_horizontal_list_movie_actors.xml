@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView_movie_actors"
+        android:layout_width="137dp"
+        android:layout_height="188dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageViewGradiente3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="#00C08A8A"
+        android:contentDescription="gradient"
+        android:src="@drawable/gradient"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_movie_actors"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_movie_actors"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView_movie_actors"
+        app:layout_constraintTop_toTopOf="@+id/imageView_movie_actors"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView_movie_actors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_movie_actors"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_movie_actors"
+        app:layout_constraintStart_toStartOf="@+id/imageView_movie_actors" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

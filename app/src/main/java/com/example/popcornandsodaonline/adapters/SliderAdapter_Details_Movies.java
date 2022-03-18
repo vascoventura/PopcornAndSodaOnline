@@ -23,7 +23,7 @@ import java.util.List;
 public class SliderAdapter_Details_Movies extends PagerAdapter {
 
     private Context context;
-    private List<String> mList = new ArrayList<>();
+    private List<String> mList;
 
     public SliderAdapter_Details_Movies(Context context, List<String> mList) {
         this.context = context;

@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.GridView;
 import android.widget.Toast;
 
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -16,22 +15,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
-public class Downloader_Movies extends AsyncTask<Void, Void, String> {
+public class Downloader_Actors_Movies extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
     ProgressDialog pd;
-    GridView gv;
     String downloadData;
     Activity activity;
-    ViewPager vp;
+    RecyclerView recyclerView;
 
 
-    public Downloader_Movies(Context c, Activity activity, String urlAdress, GridView gv) {
+    public Downloader_Actors_Movies(Context c, Activity activity, String urlAdress, RecyclerView recyclerView) {
         this.c = c;
         this.activity = activity;
         this.urlAddress = urlAdress;
-        this.gv = gv;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -50,7 +48,6 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
         System.out.println(downloadData);
         return this.downloadData();
     }
-
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(this.downloadData());
@@ -60,14 +57,13 @@ public class Downloader_Movies extends AsyncTask<Void, Void, String> {
         s = this.downloadData;
 
         if(s==null){
-            Toast.makeText(c,"Unable to Retrieve, null Returned!", Toast.LENGTH_LONG).show();
+            Toast.makeText(c,"Unable to Retrieve Actors!", Toast.LENGTH_LONG).show();
         } else{
-            Toast.makeText(c,"Success!", Toast.LENGTH_LONG).show();
+            Toast.makeText(c,"Actors retrieved Success!", Toast.LENGTH_LONG).show();
 
             //call parser
-            DataParser_Movies parser_movies = new DataParser_Movies(c, downloadData, this.activity, gv);
-
-            parser_movies.execute();
+            DataParser_Movies_Actors parser_movies_actors = new DataParser_Movies_Actors(c, downloadData, this.activity, recyclerView);
+            parser_movies_actors.execute();
         }
     }
 

@@ -10,9 +10,8 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.popcornandsodaonline.adapters.Categories_Details_Adapter;
-import com.example.popcornandsodaonline.adapters.Movie_Productors_Adapter;
-import com.example.popcornandsodaonline.models.Productor;
+import com.example.popcornandsodaonline.adapters.Movie_Actors_Adapter;
+import com.example.popcornandsodaonline.models.Actor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,9 +20,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
 
-    private List<Productor> list = new ArrayList<>();
+    private List<Actor> list = new ArrayList<>();
 
     ProgressDialog pd;
     public Context c;
@@ -36,7 +35,7 @@ public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer>
 
     String list_categories = "";
 
-    public DataParser_Movies_Production(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
+    public DataParser_Movies_Actors(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -70,8 +69,8 @@ public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer>
 
 
             //Call Adapter
-            Movie_Productors_Adapter production_details_adapter = new Movie_Productors_Adapter(this.c, list);
-            recyclerView.setAdapter(production_details_adapter);
+            Movie_Actors_Adapter actors_details_adapter = new Movie_Actors_Adapter(this.c, list);
+            recyclerView.setAdapter(actors_details_adapter);
         }
     }
 
@@ -86,24 +85,22 @@ public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer>
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String name_productor = jsonObject.getString("name_productor");
-                String cover_productor = jsonObject.getString("cover_productor");
-                int id_productor = jsonObject.getInt("id_production");
+                String name_actor = jsonObject.getString("name_actor");
+                String cover_actor = jsonObject.getString("cover_actor");
+                int id_actor = jsonObject.getInt("id_actor");
 
-                Productor productor =  new Productor();
+                Actor actor =  new Actor();
 
                 System.out.println("");
-                System.out.println("Nome Produtor: " + name_productor);
+                System.out.println("Nome Actor: " + name_actor);
                 System.out.println("");
-                System.out.println("Cover Produtor: " + cover_productor);
-                System.out.println("");
-                System.out.println("Id Produtor: " + id_productor);
+                System.out.println("Cover Actor: " + cover_actor);
 
-                productor.setCover_productor(cover_productor);
-                productor.setName_productor(name_productor);
-                productor.setId_productor(id_productor);
+                actor.setName_actor(name_actor);
+                actor.setCover_actor(cover_actor);
+                actor.setId_actor(id_actor);
 
-                list.add(productor);
+                list.add(actor);
 
                 resultado = 1;
 
@@ -117,4 +114,3 @@ public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer>
         return resultado;
     }
 }
-

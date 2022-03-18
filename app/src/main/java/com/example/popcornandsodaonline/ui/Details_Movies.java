@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.database.DataParser_Movies;
+import com.example.popcornandsodaonline.database.Downloader_Actors_Movies;
 import com.example.popcornandsodaonline.database.Downloader_Categories;
 import com.example.popcornandsodaonline.database.Downloader_Detail_Movies;
 import com.example.popcornandsodaonline.database.Downloader_Productors_Movies;
@@ -40,6 +41,7 @@ public class Details_Movies extends AppCompatActivity {
     String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
     String url_categories = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_CATEGORY_NAME_MOVIE_FILE;
     String url_productors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_PRODUCTOR_MOVIE_FILE;
+    String url_actors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_ACTORS_MOVIE_FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +50,9 @@ public class Details_Movies extends AppCompatActivity {
 
         TextView textViewNome = findViewById(R.id.detail_autor_nome);
         TextView textViewTipo = findViewById(R.id.detail_movie_cathegory);
-        //TextView textViewAutorFilme = findViewById(R.id.detail_movie_autor);
         TextView textViewClassificacao = findViewById(R.id.detail_movie_classificacao);
         TextView textViewAno = findViewById(R.id.detail_movie_ano);
         TextView textViewDescricao = findViewById(R.id.detail_movie_descricao);
-        //TextView textViewNomeAutor = findViewById(R.id.textViewNomeAutor);
-        //ImageView imageViewCapaAutor = findViewById(R.id.imageViewAutor);
         ImageView imageViewCapa = findViewById(R.id.imageViewCapaFilme);
         sliderpager = findViewById(R.id.sliderPage_Movies);
         FloatingActionButton favorito = findViewById(R.id.botao_favorito);
@@ -61,10 +60,10 @@ public class Details_Movies extends AppCompatActivity {
         FloatingActionButton trailer = findViewById(R.id.detail_movie_trailer);
 
         RecyclerView productionRV = findViewById(R.id.production_movie_rv);
+        RecyclerView actorsRv = findViewById(R.id.actor_movie_rv);
 
         textViewNome.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         textViewTipo.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
-        //textViewAutorFilme.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         textViewClassificacao.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         textViewAno.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         textViewDescricao.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
@@ -111,6 +110,10 @@ public class Details_Movies extends AppCompatActivity {
             //Carregar os produtores
             productionRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             new Downloader_Productors_Movies(Details_Movies.this, this, url_productors + idFilme, productionRV).execute();
+
+            //Carrergar os actores
+            actorsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            new Downloader_Actors_Movies(Details_Movies.this, this, url_actors + idFilme, actorsRv).execute();
         }
     }
 }

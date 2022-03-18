@@ -19,15 +19,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Productors_Adapter.MyViewHolder> {
+public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Productors_Adapter.MyViewHolder> implements View.OnClickListener {
 
     Context context;
     List<Productor> list;
     //MovieItensClickListener movieItemClickListener;
 
-    /*public MovieAdapter(Context context, List<Productor> mData, MovieItensClickListener listener) {
+    /*public Movie_Productors_Adapter(Context context, List<Productor> list, MovieItensClickListener listener) {
         this.context = context;
-        this.mData = mData;
+        this.list = list;
         movieItemClickListener = listener;
     }*/
 
@@ -62,6 +62,11 @@ public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Product
         return list.size();
     }
 
+    @Override
+    public void onClick(View view) {
+        System.out.println("PRODUTOR CLICK: " + list.get(view.getId()).getId_productor());
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView productorTitle;
@@ -75,6 +80,7 @@ public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Product
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    System.out.println("ID PRODUTOR CLICK: " + list.get(getAdapterPosition()).getId_productor());
 
                     //movieItemClickListener.onMovieClick(mData.get(getAdapterPosition()),ImgMovie);
                 }
