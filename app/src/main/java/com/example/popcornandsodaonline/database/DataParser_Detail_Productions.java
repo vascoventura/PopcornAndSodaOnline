@@ -5,16 +5,20 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
 import androidx.viewpager.widget.ViewPager;
+
 import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Movies;
+import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Productions;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-//DataParser Details Movie (Backgrounds)
-public class DataParser_Detail_Movies extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer> {
 
     private List<String> list = new ArrayList<>();
 
@@ -25,7 +29,7 @@ public class DataParser_Detail_Movies extends AsyncTask<Void, Void, Integer> {
     private Activity activity;
     ViewPager sliderpager;
 
-    public DataParser_Detail_Movies(Context c, String jsonData, Activity activity, ViewPager sliderpager){
+    public DataParser_Detail_Productions(Context c, String jsonData, Activity activity, ViewPager sliderpager){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -57,8 +61,8 @@ public class DataParser_Detail_Movies extends AsyncTask<Void, Void, Integer> {
         }else{
             Toast.makeText(c, "Parsed Successfully", Toast.LENGTH_LONG).show();
 
-            SliderAdapter_Details_Movies sliderAdapter_details_movies = new SliderAdapter_Details_Movies(this.c, list);
-            sliderpager.setAdapter(sliderAdapter_details_movies);
+            SliderAdapter_Details_Productions sliderAdapter_details_productions = new SliderAdapter_Details_Productions(this.c, list);
+            sliderpager.setAdapter(sliderAdapter_details_productions);
         }
     }
 
@@ -72,8 +76,8 @@ public class DataParser_Detail_Movies extends AsyncTask<Void, Void, Integer> {
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String back_movie = jsonObject.getString("movie_back");
-                list.add(back_movie);
+                String back_production = jsonObject.getString("production_background");
+                list.add(back_production);
 
                 resultado = 1;
             }

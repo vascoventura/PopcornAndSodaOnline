@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
-public class Downloader_Productors extends AsyncTask<Void, Void, String> {
+public class Downloader_Productions extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
@@ -23,7 +23,7 @@ public class Downloader_Productors extends AsyncTask<Void, Void, String> {
     String downloadData;
     Activity activity;
 
-    public Downloader_Productors(Context c, Activity activity, String urlAdress, GridView gv) {
+    public Downloader_Productions(Context c, Activity activity, String urlAdress, GridView gv) {
         this.c = c;
         this.activity = activity;
         this.urlAddress = urlAdress;
@@ -38,12 +38,11 @@ public class Downloader_Productors extends AsyncTask<Void, Void, String> {
         pd.setTitle("Fetch");
         pd.setMessage("Fetching... Please wait");
         pd.show();
-
     }
 
     @Override
     protected String doInBackground(Void... voids) {
-        System.out.println(downloadData);
+        System.out.println("DOWNLOADER PRODUCTION" + downloadData);
         return this.downloadData();
     }
 
@@ -52,7 +51,6 @@ public class Downloader_Productors extends AsyncTask<Void, Void, String> {
         super.onPostExecute(this.downloadData());
 
         pd.dismiss();
-
         s = this.downloadData;
 
         if(s==null){

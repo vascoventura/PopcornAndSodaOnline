@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
@@ -27,7 +26,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Details_Movies extends AppCompatActivity {
 
@@ -40,7 +38,7 @@ public class Details_Movies extends AppCompatActivity {
     //URL´s
     String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
     String url_categories = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_CATEGORY_NAME_MOVIE_FILE;
-    String url_productors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_PRODUCTOR_MOVIE_FILE;
+    String url_productors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_MOVIE_PRODUCTOR_FILE;
     String url_actors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_ACTORS_MOVIE_FILE;
 
     @Override
@@ -55,7 +53,7 @@ public class Details_Movies extends AppCompatActivity {
         TextView textViewDescricao = findViewById(R.id.detail_movie_descricao);
         ImageView imageViewCapa = findViewById(R.id.imageViewCapaFilme);
         sliderpager = findViewById(R.id.sliderPage_Movies);
-        FloatingActionButton favorito = findViewById(R.id.botao_favorito);
+        FloatingActionButton favorito = findViewById(R.id.botao_favorito_movies);
         FloatingActionButton visto = findViewById(R.id.botao_visto);
         FloatingActionButton trailer = findViewById(R.id.detail_movie_trailer);
 
@@ -86,8 +84,8 @@ public class Details_Movies extends AppCompatActivity {
             final String ratingMovie = intent.getStringExtra(DataParser_Movies.RATING_MOVIE);
             final String yearMovie = intent.getStringExtra(DataParser_Movies.YEAR_MOVIE);
             final String trailerMovie = intent.getStringExtra(DataParser_Movies.TRAILER_MOVIE);
-            final  String coverMovie = intent.getStringExtra(DataParser_Movies.COVER_MOVIE);
-            final  String descriptionMovie = intent.getStringExtra(DataParser_Movies.DESCRIPTION_MOVIE);
+            final String coverMovie = intent.getStringExtra(DataParser_Movies.COVER_MOVIE);
+            final String descriptionMovie = intent.getStringExtra(DataParser_Movies.DESCRIPTION_MOVIE);
 
             textViewNome.setText(nameMovie);
             textViewClassificacao.setText(ratingMovie);

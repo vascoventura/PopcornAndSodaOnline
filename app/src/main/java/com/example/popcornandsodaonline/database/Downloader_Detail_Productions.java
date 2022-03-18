@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.popcornandsodaonline.models.Movie;
-import com.example.popcornandsodaonline.ui.Details_Movies;
+import com.example.popcornandsodaonline.ui.Details_Productions;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -19,11 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.util.ArrayList;
-import java.util.List;
 
-//Para buscar as imagens de fundo
-public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
+public class Downloader_Detail_Productions extends AsyncTask<Void, Void, String> {
 
     Context c;
     String urlAddress;
@@ -33,7 +27,7 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
     ViewPager sliderpager;
 
 
-    public Downloader_Detail_Movies(Context c, Activity activity, String urlAdress, ViewPager sliderpager) {
+    public Downloader_Detail_Productions(Context c, Activity activity, String urlAdress, ViewPager sliderpager) {
         this.c = c;
         this.activity = activity;
         this.urlAddress = urlAdress;
@@ -41,7 +35,7 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
     }
 
     @Override
-        protected void onPreExecute() {
+    protected void onPreExecute() {
         super.onPreExecute();
 
         pd = new ProgressDialog(c);
@@ -51,13 +45,13 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
 
     }
 
-        @Override
-        protected String doInBackground(Void... voids) {
+    @Override
+    protected String doInBackground(Void... voids) {
         System.out.println(downloadData);
         return this.downloadData();
     }
-        @Override
-        protected void onPostExecute(String s) {
+    @Override
+    protected void onPostExecute(String s) {
         super.onPostExecute(this.downloadData());
 
         pd.dismiss();
@@ -70,12 +64,12 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
             Toast.makeText(c,"Success!", Toast.LENGTH_LONG).show();
 
             //call parser
-            DataParser_Detail_Movies parser_movies = new DataParser_Detail_Movies(c, downloadData, this.activity, sliderpager);
-            parser_movies.execute();
+            DataParser_Detail_Productions parser_productions = new DataParser_Detail_Productions(c, downloadData, this.activity, sliderpager);
+            parser_productions.execute();
         }
     }
 
-        private String downloadData() {
+    private String downloadData() {
         HttpURLConnection con = ConnectionDb.connect(urlAddress);
         System.out.println("CONEXAO " + con );
         if (con == null) {
@@ -117,4 +111,3 @@ public class Downloader_Detail_Movies extends AsyncTask<Void, Void, String> {
         }
     }
 }
-

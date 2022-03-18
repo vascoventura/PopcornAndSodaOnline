@@ -3,14 +3,21 @@ package com.example.popcornandsodaonline.database;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
 import com.example.popcornandsodaonline.adapters.ProductorGridAdapter;
 import com.example.popcornandsodaonline.adapters.ShowGridAdapter;
+import com.example.popcornandsodaonline.models.Movie;
 import com.example.popcornandsodaonline.models.Productor;
 import com.example.popcornandsodaonline.models.Show;
+import com.example.popcornandsodaonline.ui.Details_Movies;
+import com.example.popcornandsodaonline.ui.Details_Productions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +25,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
+//DataParser para a gridView dos Produtores
+
 public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
+    public static final String ID_PRODUCTION = "ID_PRODUCTION";
+    public static final String NAME_PRODUCTION = "NAME_PRODUCTION";
+    public static final String YEAR_BIRTHDAY = "YEAR_PRODUCTION";
+    public static final String NATIONALITY_PRODUCTION = "NATIONALITY_PRODUCTION";
+    public static final String DESCRIPTION_PRODUCTION = "DESCRIPTION_PRODUCTION";
+    public static final String COVER_PRODUCTION = "COVER_PRODUCTION";
+
     ProgressDialog pd;
     Context c;
     int resultado = 0;
@@ -62,6 +79,35 @@ public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
 
             ProductorGridAdapter productorGridAdapter = new ProductorGridAdapter(this.c, productorsArrayList);
             gv.setAdapter(productorGridAdapter);
+
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Productor productor = productorsArrayList.get(i);
+                    long id_productor = productor.getId_productor();
+                    String name_productor = productor.getName_productor();
+                   // String birthday = productor.getgetYear_movie();
+                    String description = productor.getDescription();
+                    String cover_productor = productor.getCover_productor();
+                    String nationality = productor.getNationality();
+
+                    Toast.makeText(c, name_productor, Toast.LENGTH_SHORT).show();
+
+                    Context context = view.getContext();
+
+                    Intent intent = new Intent();
+                    Details_Productions dp = new Details_Productions();
+                    intent.setClass(context, dp.getClass());
+
+                    intent.putExtra(ID_PRODUCTION, id_productor);
+                    intent.putExtra(NAME_PRODUCTION, name_productor);
+                    //intent.putExtra(YEAR_MOVIE, String.valueOf(year));
+                    intent.putExtra(DESCRIPTION_PRODUCTION, description);
+                    intent.putExtra(COVER_PRODUCTION, cover_productor);
+                    intent.putExtra(NATIONALITY_PRODUCTION, nationality);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

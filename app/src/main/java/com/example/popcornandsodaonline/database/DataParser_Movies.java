@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+//DataParser Movies (GridView)
 public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
     public static final String ID_MOVIE = "ID_MOVIE";
     public static final String NAME_MOVIE = "NAME_MOVIE";
@@ -33,30 +34,18 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
 
 
     ProgressDialog pd;
-    public Context c;
+    Context c;
     int resultado = 0;
     String jsonData;
     ArrayList<Movie> moviesArrayList = new ArrayList<>();
-    private Activity activity;
-    private GridView gv;
-    private ViewPager vp;
-
-
-
+    Activity activity;
+    GridView gv;
 
     public DataParser_Movies(Context c, String jsonData, Activity activity, GridView gv){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
         this.gv = gv;
-
-    }
-
-    public DataParser_Movies(Context c, String jsonData, Activity activity, ViewPager vp){
-        this.c = c;
-        this.jsonData = jsonData;
-        this.activity = activity;
-        this.vp = vp;
     }
 
     @Override
@@ -148,17 +137,6 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
                 movie.setDescription_movie(description);
                 movie.setLink_trailer_filme(trailer_link);
                 movie.setCover_image_movie(cover_movie);
-
-                System.out.println("");
-                System.out.println("Filme: " + String.valueOf(i + 1));
-                System.out.println("");
-                System.out.println(id);
-                System.out.println(name);
-                System.out.println(rating);
-                System.out.println(year);
-                System.out.println(description);
-                System.out.println(trailer_link);
-                System.out.println(cover_movie);
 
                 moviesArrayList.add(movie);
 

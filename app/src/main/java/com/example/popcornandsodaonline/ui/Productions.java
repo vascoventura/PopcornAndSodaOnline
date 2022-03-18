@@ -7,10 +7,8 @@ import android.widget.GridView;
 
 import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
-import com.example.popcornandsodaonline.database.Downloader_Productors;
-import com.example.popcornandsodaonline.database.Downloader_Shows;
+import com.example.popcornandsodaonline.database.Downloader_Productions;
 import com.example.popcornandsodaonline.models.Productor;
-import com.example.popcornandsodaonline.models.Show;
 
 import java.util.ArrayList;
 
@@ -25,6 +23,6 @@ public class Productions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productions);
         GridView gridViewProductors = (GridView) findViewById(R.id.productions_grid);
-        new Downloader_Productors(Productions.this, this, url, gridViewProductors).execute();
+        new Downloader_Productions(Productions.this, this, url, gridViewProductors).execute();
     }
 }

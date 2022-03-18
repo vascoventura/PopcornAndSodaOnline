@@ -1,6 +1,9 @@
 package com.example.popcornandsodaonline.adapters;
 
+import static com.example.popcornandsodaonline.database.DataParser_Productors.ID_PRODUCTION;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Actor;
 import com.example.popcornandsodaonline.models.Productor;
+import com.example.popcornandsodaonline.ui.Details_Productions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -53,13 +57,12 @@ public class ProductorGridAdapter extends BaseAdapter implements View.OnClickLis
 
         System.out.println("ID DO PRODUTOR: " + productorsList.get(view.getId()).getId_productor());
 
-        Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
-        /*long idFilme = row.getId();
+        int idProductor = productorsList.get(view.getId()).getId_productor();
         Context context = view.getContext();
         Intent intent = new Intent();
-        //intent.setClass(context, DetailActivityMovie.class);
-        intent.putExtra(ID_FILME, idFilme);
-        context.startActivity(intent);*/
+        intent.setClass(context, Details_Productions.class);
+        intent.putExtra(ID_PRODUCTION, idProductor);
+        context.startActivity(intent);
     }
 
     @Override
