@@ -10,8 +10,10 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.popcornandsodaonline.adapters.Movie_Actors_Adapter;
-import com.example.popcornandsodaonline.models.Actor;
+import com.example.popcornandsodaonline.adapters.Actor_Shows_Adapter;
+import com.example.popcornandsodaonline.adapters.Productor_Movies_Adapter;
+import com.example.popcornandsodaonline.models.Movie;
+import com.example.popcornandsodaonline.models.Show;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,9 +22,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Actors_Shows extends AsyncTask<Void, Void, Integer> {
 
-    private List<Actor> list = new ArrayList<>();
+    private List<Show> list = new ArrayList<>();
 
     ProgressDialog pd;
     public Context c;
@@ -35,7 +37,7 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
 
     String list_categories = "";
 
-    public DataParser_Movies_Actors(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
+    public DataParser_Actors_Shows(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -67,10 +69,9 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
         }else{
             Toast.makeText(c, "Production Parsed Successfully", Toast.LENGTH_LONG).show();
 
-
             //Call Adapter
-            Movie_Actors_Adapter actors_details_adapter = new Movie_Actors_Adapter(this.c, list);
-            recyclerView.setAdapter(actors_details_adapter);
+            Actor_Shows_Adapter production_details_adapter = new Actor_Shows_Adapter(this.c, list);
+            recyclerView.setAdapter(production_details_adapter);
         }
     }
 
@@ -85,23 +86,27 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String name_actor = jsonObject.getString("name_actor");
-                String cover_actor = jsonObject.getString("cover_actor");
-                int id_actor = jsonObject.getInt("id_actor");
-                String nationality = jsonObject.getString("nationality");
-                String description = jsonObject.getString("actor_description");
-                String birthday = (String) jsonObject.getString("birthday");
+                String name_movie = jsonObject.getString("name_show");
+                String cover_movie = jsonObject.getString("cover_show");
+                int id_movie = jsonObject.getInt("id_show");
+                float rating = (float) jsonObject.getDouble("rating");
+                int year = jsonObject.getInt("begin_year_show");
+                int end_year = jsonObject.getInt("end_year_show");
+                String description = jsonObject.getString("description_show");
+                String trailer_link = jsonObject.getString("trailer_link");
 
-                Actor actor =  new Actor();
+                Show show =  new Show();
 
-                actor.setName_actor(name_actor);
-                actor.setCover_actor(cover_actor);
-                actor.setId_actor(id_actor);
-                actor.setNationality(nationality);
-                actor.setDescription(description);
-                actor.setBirthday(birthday);
+                show.setCover_show(cover_movie);
+                show.setName_show(name_movie);
+                show.setId_show(id_movie);
+                show.setRating(rating);
+                show.setBegin_year(year);
+                show.setEnd_year(end_year);
+                show.setDescription_show(description);
+                show.setTrailer_show(trailer_link);
 
-                list.add(actor);
+                list.add(show);
 
                 resultado = 1;
 
@@ -115,3 +120,4 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
         return resultado;
     }
 }
+

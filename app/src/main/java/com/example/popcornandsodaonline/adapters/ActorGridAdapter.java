@@ -1,6 +1,10 @@
 package com.example.popcornandsodaonline.adapters;
 
+import static com.example.popcornandsodaonline.database.DataParser_Actors.ID_ACTOR;
+import static com.example.popcornandsodaonline.database.DataParser_Productors.ID_PRODUCTION;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,8 @@ import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Actor;
 import com.example.popcornandsodaonline.models.Book;
+import com.example.popcornandsodaonline.ui.Details_Actors;
+import com.example.popcornandsodaonline.ui.Details_Productions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,7 +38,6 @@ public class ActorGridAdapter extends BaseAdapter implements View.OnClickListene
         this.actorsList = actorsList;
     }
 
-
     @Override
     public int getCount() {
         return actorsList.size();
@@ -50,16 +55,12 @@ public class ActorGridAdapter extends BaseAdapter implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-
-        System.out.println("ID DO ACTOR: " + actorsList.get(view.getId()).getId_actor());
-
-        Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
-        /*long idFilme = row.getId();
+        int idActor = actorsList.get(view.getId()).getId_actor();
         Context context = view.getContext();
         Intent intent = new Intent();
-        //intent.setClass(context, DetailActivityMovie.class);
-        intent.putExtra(ID_FILME, idFilme);
-        context.startActivity(intent);*/
+        intent.setClass(context, Details_Actors.class);
+        intent.putExtra(ID_ACTOR, idActor);
+        context.startActivity(intent);
     }
 
     @Override

@@ -3,12 +3,18 @@ package com.example.popcornandsodaonline.database;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.popcornandsodaonline.adapters.ActorGridAdapter;
 import com.example.popcornandsodaonline.models.Actor;
+import com.example.popcornandsodaonline.models.Productor;
+import com.example.popcornandsodaonline.ui.Details_Actors;
+import com.example.popcornandsodaonline.ui.Details_Productions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +23,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DataParser_Actors extends AsyncTask<Void, Void, Integer> {
+    public static final String ID_ACTOR = "ID_ACTOR";
+    public static final String NAME_ACTOR = "NAME_ACTOR";
+    public static final String ACTOR_BIRTHDAY = "ACTOR_BIRTHDAY";
+    public static final String NATIONALITY_ACTOR = "NATIONALITY_ACTOR";
+    public static final String DESCRIPTION_ACTOR = "DESCRIPTION_ACTOR";
+    public static final String COVER_ACTOR = "COVER_ACTOR";
+
     ProgressDialog pd;
     Context c;
     int resultado = 0;
@@ -59,6 +72,36 @@ public class DataParser_Actors extends AsyncTask<Void, Void, Integer> {
 
             ActorGridAdapter actorGridAdapter = new ActorGridAdapter(this.c, actorsArrayList);
             gv.setAdapter(actorGridAdapter);
+
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Actor actor = actorsArrayList.get(i);
+
+                    int id_actor = actor.getId_actor();
+                    String name_actor = actor.getName_actor();
+                    String birthday = actor.getBirthday();
+                    String description = actor.getDescription();
+                    String cover_actor = actor.getCover_actor();
+                    String nationality = actor.getNationality();
+
+                    Toast.makeText(c, name_actor, Toast.LENGTH_SHORT).show();
+
+                    Context context = view.getContext();
+
+                    Intent intent = new Intent();
+                    Details_Actors dp = new Details_Actors();
+                    intent.setClass(context, dp.getClass());
+
+                    intent.putExtra(ID_ACTOR, id_actor);
+                    intent.putExtra(NAME_ACTOR, name_actor);
+                    intent.putExtra(ACTOR_BIRTHDAY, birthday);
+                    intent.putExtra(DESCRIPTION_ACTOR, description);
+                    intent.putExtra(COVER_ACTOR, cover_actor);
+                    intent.putExtra(NATIONALITY_ACTOR, nationality);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -78,6 +121,7 @@ public class DataParser_Actors extends AsyncTask<Void, Void, Integer> {
                 String nationality = jsonObject.getString("nationality");
                 String description = jsonObject.getString("actor_description");
                 String cover_actor = jsonObject.getString("cover_actor");
+                String birthday = (String) jsonObject.getString("birthday");
 
                 actor = new Actor();
                 actor.setId_actor(id);
@@ -85,6 +129,7 @@ public class DataParser_Actors extends AsyncTask<Void, Void, Integer> {
                 actor.setNationality(nationality);
                 actor.setDescription(description);
                 actor.setCover_actor(cover_actor);
+                actor.setBirthday(birthday);
 
                 System.out.println("");
                 System.out.println("Actor: " + String.valueOf(i + 1));

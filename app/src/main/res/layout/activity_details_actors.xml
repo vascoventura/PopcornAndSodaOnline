@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/accent"
-    tools:context=".ui.Details_Productions">
+    tools:context=".ui.Details_Actors">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/sliderPage_Production"
+            android:id="@+id/sliderPage_Actors"
             android:layout_width="match_parent"
             android:layout_height="309dp"
             android:contentDescription="@string/_todo"
@@ -30,63 +30,63 @@
             android:background="#00C08A8A"
             android:contentDescription="TODO"
             android:src="@drawable/gradient"
-            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Production"
-            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Production"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Actors"
+            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Actors"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/sliderPage_Production"
-            app:layout_constraintTop_toTopOf="@+id/sliderPage_Production"
+            app:layout_constraintStart_toStartOf="@+id/sliderPage_Actors"
+            app:layout_constraintTop_toTopOf="@+id/sliderPage_Actors"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="ImageContrastCheck" />
 
 
         <ImageView
-            android:id="@+id/imageViewCapaProduction"
+            android:id="@+id/imageViewCapaActor"
             android:layout_width="137dp"
             android:layout_height="188dp"
             android:layout_marginStart="16dp"
             android:scaleType="centerCrop"
             android:transitionName="=sharedName"
-            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Production"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Actors"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Production"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Actors"
             app:srcCompat="@drawable/filmes"
             tools:ignore="ImageContrastCheck"
             tools:targetApi="lollipop" />
 
         <TextView
-            android:id="@+id/detail_production_nome"
+            android:id="@+id/detail_actor_nome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/black"
-            app:layout_constraintStart_toEndOf="@+id/imageViewCapaProduction"
-            app:layout_constraintTop_toBottomOf="@+id/botao_favorito_production" />
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaActor"
+            app:layout_constraintTop_toBottomOf="@+id/botao_favorito_actor" />
 
 
         <TextView
-            android:id="@+id/detail_production_birthday"
+            android:id="@+id/detail_actor_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/detail_production_nome"
-            app:layout_constraintTop_toBottomOf="@+id/detail_production_nome" />
+            app:layout_constraintStart_toStartOf="@+id/detail_actor_nome"
+            app:layout_constraintTop_toBottomOf="@+id/detail_actor_nome" />
 
         <TextView
-            android:id="@+id/detail_production_nationality"
+            android:id="@+id/detail_actor_nationality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/detail_production_birthday"
-            app:layout_constraintTop_toBottomOf="@+id/detail_production_birthday" />
+            app:layout_constraintStart_toStartOf="@+id/detail_actor_birthday"
+            app:layout_constraintTop_toBottomOf="@+id/detail_actor_birthday" />
 
         <TextView
-            android:id="@+id/detail_production_descricao"
+            android:id="@+id/detail_actor_descricao"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -96,11 +96,11 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imageViewCapaProduction"
-            app:layout_constraintTop_toBottomOf="@+id/detail_production_nationality" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewCapaActor"
+            app:layout_constraintTop_toBottomOf="@+id/detail_actor_nationality" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/botao_favorito_production"
+            android:id="@+id/botao_favorito_actor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -108,9 +108,9 @@
             android:focusable="true"
             android:src="@drawable/ic_favorite"
             app:backgroundTint="#00BCD4"
-            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Production"
-            app:layout_constraintStart_toEndOf="@+id/imageViewCapaProduction"
-            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Production"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Actors"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaActor"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Actors"
             tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -122,11 +122,11 @@
             android:text="@string/m_ovies"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/detail_production_descricao"
-            app:layout_constraintTop_toBottomOf="@+id/detail_production_descricao" />
+            app:layout_constraintStart_toStartOf="@+id/detail_actor_descricao"
+            app:layout_constraintTop_toBottomOf="@+id/detail_actor_descricao" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/movie_production_rv"
+            android:id="@+id/movie_actor_rv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -134,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/show_production_rv"
+            android:id="@+id/show_actor_rv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -152,8 +152,8 @@
             android:text="Shows"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/movie_production_rv"
-            app:layout_constraintTop_toBottomOf="@+id/movie_production_rv" />
+            app:layout_constraintStart_toStartOf="@+id/movie_actor_rv"
+            app:layout_constraintTop_toBottomOf="@+id/movie_actor_rv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

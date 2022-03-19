@@ -6,20 +6,19 @@ public class Productor {
     private String nationality;
     private String description;
     private String cover_productor;
+    private String birthday_productor;
+    private String deathday_productor;
 
     public Productor() {}
 
-    public Productor(int id_productor, String name_productor, String nationality, String description, String cover_productor) {
+    public Productor(int id_productor, String name_productor, String nationality, String description, String cover_productor, String birthday_productor, String deathday_productor) {
         this.id_productor = id_productor;
         this.name_productor = name_productor;
         this.nationality = nationality;
         this.description = description;
         this.cover_productor = cover_productor;
-    }
-
-    public Productor(String name_productor, String cover_productor) {
-        this.name_productor = name_productor;
-        this.cover_productor = cover_productor;
+        this.birthday_productor = birthday_productor;
+        this.deathday_productor = deathday_productor;
     }
 
     public int getId_productor() {
@@ -60,5 +59,21 @@ public class Productor {
 
     public void setCover_productor(String cover_productor) {
         this.cover_productor = cover_productor;
+    }
+
+    public String getBirthday_productor() {
+        return birthday_productor;
+    }
+
+    public void setBirthday_productor(String birthday_productor) {
+        this.birthday_productor = birthday_productor;
+    }
+
+    public String getDeathday_productor() {
+        return deathday_productor;
+    }
+
+    public void setDeathday_productor(String deathday_productor) {
+        this.deathday_productor = deathday_productor;
     }
 }

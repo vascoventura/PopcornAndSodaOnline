@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PopcornAndSodaOnline">
         <activity
+            android:name=".ui.Details_Shows"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Details_Actors"
+            android:exported="false" />
+        <activity
             android:name=".ui.Details_Productions"
             android:exported="false" />
         <activity

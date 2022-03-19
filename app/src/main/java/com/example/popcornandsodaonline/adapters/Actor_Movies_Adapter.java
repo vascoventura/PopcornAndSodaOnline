@@ -15,35 +15,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Movie;
 import com.example.popcornandsodaonline.ui.Details_Movies;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class Productor_Movies_Adapter extends RecyclerView.Adapter<Productor_Movies_Adapter.MyViewHolder> {
+public class Actor_Movies_Adapter extends RecyclerView.Adapter<Actor_Movies_Adapter.MyViewHolder> {
     Context context;
     List<Movie> list;
 
-    public Productor_Movies_Adapter(Context context, List<Movie> list) {
+    public Actor_Movies_Adapter(Context context, List<Movie> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public Productor_Movies_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public Actor_Movies_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_horizontal_list_movie_production, viewGroup, false);
-        return new Productor_Movies_Adapter.MyViewHolder((view));
+        return new Actor_Movies_Adapter.MyViewHolder((view));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Productor_Movies_Adapter.MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull Actor_Movies_Adapter.MyViewHolder myViewHolder, int i) {
         myViewHolder.movieTitle.setText(list.get(i).getName_movie());
         try {
             URL imageurl = new URL(ConnectionDb.CONECTIONIP + list.get(i).getCover_image_movie());

@@ -84,9 +84,10 @@ public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Productor productor = productorsArrayList.get(i);
-                    long id_productor = productor.getId_productor();
+
+                    int id_productor = productor.getId_productor();
                     String name_productor = productor.getName_productor();
-                   // String birthday = productor.getgetYear_movie();
+                    String birthday = productor.getBirthday_productor();
                     String description = productor.getDescription();
                     String cover_productor = productor.getCover_productor();
                     String nationality = productor.getNationality();
@@ -101,7 +102,7 @@ public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
 
                     intent.putExtra(ID_PRODUCTION, id_productor);
                     intent.putExtra(NAME_PRODUCTION, name_productor);
-                    //intent.putExtra(YEAR_MOVIE, String.valueOf(year));
+                    intent.putExtra(YEAR_BIRTHDAY, birthday);
                     intent.putExtra(DESCRIPTION_PRODUCTION, description);
                     intent.putExtra(COVER_PRODUCTION, cover_productor);
                     intent.putExtra(NATIONALITY_PRODUCTION, nationality);
@@ -127,6 +128,7 @@ public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
                 String nationality = jsonObject.getString("nationality");
                 String description = jsonObject.getString("description");
                 String cover_productor = jsonObject.getString("cover_productor");
+                String birthday = (String) jsonObject.getString("birthday");
 
                 productor = new Productor();
                 productor.setId_productor(id);
@@ -134,17 +136,7 @@ public class DataParser_Productors extends AsyncTask<Void, Void, Integer> {
                 productor.setNationality(nationality);
                 productor.setDescription(description);
                 productor.setCover_productor(cover_productor);
-
-
-                System.out.println("");
-                System.out.println("Productor: " + String.valueOf(i + 1));
-                System.out.println("");
-                System.out.println(id);
-                System.out.println(name);
-                System.out.println(nationality);
-                System.out.println(description);
-                System.out.println(cover_productor);
-
+                productor.setBirthday_productor(birthday);
 
                 productorsArrayList.add(productor);
 

@@ -39,7 +39,7 @@ public class Details_Movies extends AppCompatActivity {
     String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_MOVIES_FILE;
     String url_categories = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_CATEGORY_NAME_MOVIE_FILE;
     String url_productors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_MOVIE_PRODUCTOR_FILE;
-    String url_actors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_ACTORS_MOVIE_FILE;
+    String url_actors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_MOVIE_ACTORS_FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class Details_Movies extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        final long idFilme = intent.getLongExtra(DataParser_Movies.ID_MOVIE, -1);
+        final int idFilme = (int) intent.getIntExtra(DataParser_Movies.ID_MOVIE, -1);
         if (idFilme == -1) {
             Toast.makeText(this, "Erro: não foi possível abrir a página do conteúdo", Toast.LENGTH_LONG).show();
             finish();

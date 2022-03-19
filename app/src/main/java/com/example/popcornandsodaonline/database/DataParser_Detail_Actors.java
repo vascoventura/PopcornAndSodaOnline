@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Movies;
+import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Actors;
 import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Productions;
 
 import org.json.JSONArray;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Detail_Actors extends AsyncTask<Void, Void, Integer> {
 
     private List<String> list = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
     private Activity activity;
     ViewPager sliderpager;
 
-    public DataParser_Detail_Productions(Context c, String jsonData, Activity activity, ViewPager sliderpager){
+    public DataParser_Detail_Actors(Context c, String jsonData, Activity activity, ViewPager sliderpager){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -61,7 +61,7 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
         }else{
             Toast.makeText(c, "Parsed Successfully", Toast.LENGTH_LONG).show();
 
-            SliderAdapter_Details_Productions sliderAdapter_details_productions = new SliderAdapter_Details_Productions(this.c, list);
+            SliderAdapter_Details_Actors sliderAdapter_details_productions = new SliderAdapter_Details_Actors(this.c, list);
             sliderpager.setAdapter(sliderAdapter_details_productions);
         }
     }
@@ -76,7 +76,7 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String back_production = jsonObject.getString("production_background");
+                String back_production = jsonObject.getString("actor_background");
                 list.add(back_production);
 
                 resultado = 1;
@@ -90,3 +90,4 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
         return resultado;
     }
 }
+

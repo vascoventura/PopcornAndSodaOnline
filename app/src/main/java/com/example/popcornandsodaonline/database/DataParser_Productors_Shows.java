@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Movies;
-import com.example.popcornandsodaonline.adapters.SliderAdapter_Details_Productions;
+import com.example.popcornandsodaonline.adapters.Productor_Movies_Adapter;
+import com.example.popcornandsodaonline.adapters.Productor_Shows_Adapter;
+import com.example.popcornandsodaonline.models.Movie;
+import com.example.popcornandsodaonline.models.Show;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,22 +22,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Productors_Shows extends AsyncTask<Void, Void, Integer> {
 
-    private List<String> list = new ArrayList<>();
+    private List<Show> list = new ArrayList<>();
 
     ProgressDialog pd;
     public Context c;
     int resultado = 0;
     String jsonData;
     private Activity activity;
-    ViewPager sliderpager;
+    TextView textView;
+    ImageView imageView;
+    RecyclerView recyclerView;
 
-    public DataParser_Detail_Productions(Context c, String jsonData, Activity activity, ViewPager sliderpager){
+    String list_categories = "";
+
+    public DataParser_Productors_Shows(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
-        this.sliderpager = sliderpager;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -57,12 +65,14 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
         result = this.resultado;
         pd.dismiss();
         if(result==0){
-            Toast.makeText(c, "Unable to Parse", Toast.LENGTH_LONG).show();
+            Toast.makeText(c, "Unable to Parse Shows", Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(c, "Parsed Successfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(c, "Shows Parsed Successfully", Toast.LENGTH_LONG).show();
 
-            SliderAdapter_Details_Productions sliderAdapter_details_productions = new SliderAdapter_Details_Productions(this.c, list);
-            sliderpager.setAdapter(sliderAdapter_details_productions);
+
+            //Call Adapter
+            Productor_Shows_Adapter production_details_adapter = new Productor_Shows_Adapter(this.c, list);
+            recyclerView.setAdapter(production_details_adapter);
         }
     }
 
@@ -73,13 +83,24 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
 
             list.clear();
 
+
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String back_production = jsonObject.getString("production_background");
-                list.add(back_production);
+                String name_movie = jsonObject.getString("name_show");
+                String cover_movie = jsonObject.getString("cover_show");
+                int id_movie = jsonObject.getInt("id_show");
+
+                Show show =  new Show();
+
+                show.setCover_show(cover_movie);
+                show.setName_show(name_movie);
+                show.setId_show(id_movie);
+
+                list.add(show);
 
                 resultado = 1;
+
             }
 
             return resultado;
@@ -90,3 +111,4 @@ public class DataParser_Detail_Productions extends AsyncTask<Void, Void, Integer
         return resultado;
     }
 }
+

@@ -1,6 +1,11 @@
 package com.example.popcornandsodaonline.adapters;
 
+import static com.example.popcornandsodaonline.database.DataParser_Productors.COVER_PRODUCTION;
+import static com.example.popcornandsodaonline.database.DataParser_Productors.DESCRIPTION_PRODUCTION;
 import static com.example.popcornandsodaonline.database.DataParser_Productors.ID_PRODUCTION;
+import static com.example.popcornandsodaonline.database.DataParser_Productors.NAME_PRODUCTION;
+import static com.example.popcornandsodaonline.database.DataParser_Productors.NATIONALITY_PRODUCTION;
+import static com.example.popcornandsodaonline.database.DataParser_Productors.YEAR_BIRTHDAY;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +28,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Productors_Adapter.MyViewHolder> implements View.OnClickListener {
+public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Productors_Adapter.MyViewHolder>{
 
     Context context;
     List<Productor> list;
@@ -56,11 +61,6 @@ public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Product
         return list.size();
     }
 
-    @Override
-    public void onClick(View view) {
-        System.out.println("PRODUTOR CLICK: " + list.get(view.getId()).getId_productor());
-    }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView productorTitle;
@@ -73,12 +73,23 @@ public class Movie_Productors_Adapter extends RecyclerView.Adapter<Movie_Product
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int idProductor = list.get(getAdapterPosition()).getId_productor();
-                    System.out.print("id do produtor: " + idProductor);
+                    int idProductor = (int) list.get(getAdapterPosition()).getId_productor();
+                    String name = list.get(getAdapterPosition()).getName_productor();
+                    String nationality = list.get(getAdapterPosition()).getNationality();
+                    String description = list.get(getAdapterPosition()).getDescription();
+                    String cover_productor = list.get(getAdapterPosition()).getCover_productor();;
+                    String birthday = (String) list.get(getAdapterPosition()).getBirthday_productor();
+
                     Context context = v.getContext();
                     Intent intent = new Intent();
                     intent.setClass(context, Details_Productions.class);
                     intent.putExtra(ID_PRODUCTION, idProductor);
+                    intent.putExtra(NAME_PRODUCTION, name);
+                    intent.putExtra(DESCRIPTION_PRODUCTION, description);
+                    intent.putExtra(NATIONALITY_PRODUCTION, nationality);
+                    intent.putExtra(YEAR_BIRTHDAY, birthday);
+                    intent.putExtra(COVER_PRODUCTION, cover_productor);
+
                     context.startActivity(intent);
                 }
             });

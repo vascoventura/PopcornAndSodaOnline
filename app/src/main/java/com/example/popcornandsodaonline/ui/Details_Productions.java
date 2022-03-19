@@ -18,6 +18,7 @@ import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.database.DataParser_Productors;
 import com.example.popcornandsodaonline.database.Downloader_Detail_Productions;
 import com.example.popcornandsodaonline.database.Downloader_Movies_Productors;
+import com.example.popcornandsodaonline.database.Downloader_Shows_Productors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.net.MalformedURLException;
@@ -30,7 +31,7 @@ public class Details_Productions extends AppCompatActivity {
     //URL´s
     String url_backgrounds = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_BACKGROUND_PRODUCTIONS_FILE;
     String url_movies = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_PRODUCTOR_MOVIE_FILE;
-    String url_actors = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_ACTORS_MOVIE_FILE;
+    String url_shows = ConnectionDb.CONECTIONIP + ConnectionDb.PHP_PRODUCTOR_SHOW_FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class Details_Productions extends AppCompatActivity {
         ImageView imageViewCapa = findViewById(R.id.imageViewCapaProduction);
         sliderpager = findViewById(R.id.sliderPage_Production);
         FloatingActionButton favorito = findViewById(R.id.botao_favorito_production);
+        TextView textViewNationality = findViewById(R.id.detail_production_nationality);
+        //TextView textViewDeath = findViewById(R.id.detail_production_death);
 
         RecyclerView moviesRV = findViewById(R.id.movie_production_rv);
         RecyclerView showsRv = findViewById(R.id.show_production_rv);
@@ -55,9 +58,12 @@ public class Details_Productions extends AppCompatActivity {
         sliderpager.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         moviesRV.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
         showsRv.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
+        textViewNationality.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
+        //textViewDeath.setAnimation(AnimationUtils.loadAnimation(this, R.anim.nav_default_pop_enter_anim));
+
 
         Intent intent = getIntent();
-        final int idProduction = (int) intent.getLongExtra(DataParser_Productors.ID_PRODUCTION, -1);
+        final int idProduction = (int) intent.getIntExtra(DataParser_Productors.ID_PRODUCTION, -1);
         if (idProduction == -1) {
             Toast.makeText(this, "Erro: não foi possível abrir a página do conteúdo", Toast.LENGTH_LONG).show();
             finish();
@@ -67,10 +73,12 @@ public class Details_Productions extends AppCompatActivity {
             final String yearProduction = intent.getStringExtra(DataParser_Productors.YEAR_BIRTHDAY);
             final String coverProduction = intent.getStringExtra(DataParser_Productors.COVER_PRODUCTION);
             final String descriptionProduction = intent.getStringExtra(DataParser_Productors.DESCRIPTION_PRODUCTION);
+            final String nationalityProduction = intent.getStringExtra(DataParser_Productors.NATIONALITY_PRODUCTION);
 
             textViewNome.setText(nameProduction);
             textViewAno.setText(yearProduction);
             textViewDescricao.setText(descriptionProduction);
+            textViewNationality.setText(nationalityProduction);
 
             try{
                 URL imageurl = new URL(ConnectionDb.CONECTIONIP + coverProduction);
@@ -87,15 +95,10 @@ public class Details_Productions extends AppCompatActivity {
             moviesRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             new Downloader_Movies_Productors(Details_Productions.this, this, url_movies + idProduction, moviesRV).execute();
 
-            /*
-            //Carregar os produtores
-            productionRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-            new Downloader_Productors_Movies(Details_Productions.this, this, url_productors + idProduction, productionRV).execute();
 
-            //Carrergar os actores
-            actorsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-            new Downloader_Actors_Movies(Details_Productions.this, this, url_actors + idProduction, actorsRv).execute();
-        */
+            //Carregar as series
+            showsRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            new Downloader_Shows_Productors(Details_Productions.this, this, url_shows + idProduction, showsRv).execute();
         }
     }
 }

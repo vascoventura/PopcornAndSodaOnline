@@ -86,27 +86,26 @@ public class DataParser_Movies_Production extends AsyncTask<Void, Void, Integer>
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String name_productor = jsonObject.getString("name_productor");
+                int id = jsonObject.getInt("id_production");
+                String name = jsonObject.getString("name_productor");
+                String nationality = jsonObject.getString("nationality");
+                String description = jsonObject.getString("description");
                 String cover_productor = jsonObject.getString("cover_productor");
-                int id_productor = jsonObject.getInt("id_production");
+                String birthday = (String) jsonObject.getString("birthday");
 
-                Productor productor =  new Productor();
+                Productor productor = new Productor();
 
-                System.out.println("");
-                System.out.println("Nome Produtor: " + name_productor);
-                System.out.println("");
-                System.out.println("Cover Produtor: " + cover_productor);
-                System.out.println("");
-                System.out.println("Id Produtor: " + id_productor);
-
+                productor = new Productor();
+                productor.setId_productor(id);
+                productor.setName_productor(name);
+                productor.setNationality(nationality);
+                productor.setDescription(description);
                 productor.setCover_productor(cover_productor);
-                productor.setName_productor(name_productor);
-                productor.setId_productor(id_productor);
+                productor.setBirthday_productor(birthday);
 
                 list.add(productor);
 
                 resultado = 1;
-
             }
 
             return resultado;

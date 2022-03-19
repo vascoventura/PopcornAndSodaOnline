@@ -2,7 +2,7 @@ package com.example.popcornandsodaonline.models;
 
 public class Movie {
     //Atributos
-    private long id_movie;
+    private int id_movie;
     private String name_movie;
     private double rating_movie;
     private int year_movie;
@@ -12,17 +12,17 @@ public class Movie {
 
 
     private byte[] foto_fundo_filme;
-    private long foto_fundo;
+    private int foto_fundo;
 
     private boolean favorito_filme;
     private boolean visto_filme;
 
-    private long categoria_filme;
+    private int categoria_filme;
     private String nomeCategoria;
 
     public Movie(){}
 
-    public Movie(long id_movie, String name_movie, double rating_movie, int year_movie, String description_movie, String cover_image_movie, String link_trailer_filme) {
+    public Movie(int id_movie, String name_movie, double rating_movie, int year_movie, String description_movie, String cover_image_movie, String link_trailer_filme) {
         this.id_movie = id_movie;
         this.name_movie = name_movie;
         this.rating_movie = rating_movie;
@@ -32,11 +32,11 @@ public class Movie {
         this.link_trailer_filme = link_trailer_filme;
     }
 
-    public long getId_movie() {
+    public int getId_movie() {
         return id_movie;
     }
 
-    public void setId_movie(long id_movie) {
+    public void setId_movie(int id_movie) {
         this.id_movie = id_movie;
     }
 

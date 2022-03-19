@@ -81,7 +81,7 @@ public class DataParser_Movies extends AsyncTask<Void, Void, Integer> {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Movie movie = moviesArrayList.get(i);
-                    long id_movie = movie.getId_movie();
+                    int id_movie = movie.getId_movie();
                     String name_movie = movie.getName_movie();
                     float rating = (float) movie.getRating_movie();
                     int year = movie.getYear_movie();

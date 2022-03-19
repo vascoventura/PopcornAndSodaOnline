@@ -17,12 +17,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class SliderAdapter_Details_Productions extends PagerAdapter {
+public class SliderAdapter_Details_Actors extends PagerAdapter {
 
     private Context context;
     private List<String> mList;
 
-    public SliderAdapter_Details_Productions(Context context, List<String> mList) {
+    public SliderAdapter_Details_Actors(Context context, List<String> mList) {
         this.context = context;
         this.mList = mList;
     }

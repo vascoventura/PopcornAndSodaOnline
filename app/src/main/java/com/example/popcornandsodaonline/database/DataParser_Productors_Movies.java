@@ -90,12 +90,20 @@ public class DataParser_Productors_Movies extends AsyncTask<Void, Void, Integer>
                 String name_movie = jsonObject.getString("name_movie");
                 String cover_movie = jsonObject.getString("cover_movie");
                 int id_movie = jsonObject.getInt("id_movie");
+                float rating = (float) jsonObject.getDouble("rating");
+                int year = jsonObject.getInt("year_movie");
+                String description = jsonObject.getString("description_movie");
+                String trailer_link = jsonObject.getString("trailer_link");
 
                 Movie movie =  new Movie();
 
                 movie.setCover_image_movie(cover_movie);
                 movie.setName_movie(name_movie);
                 movie.setId_movie(id_movie);
+                movie.setRating_movie(rating);
+                movie.setYear_movie(year);
+                movie.setDescription_movie(description);
+                movie.setLink_trailer_filme(trailer_link);
 
                 list.add(movie);
 

@@ -10,8 +10,9 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.popcornandsodaonline.adapters.Movie_Actors_Adapter;
-import com.example.popcornandsodaonline.models.Actor;
+import com.example.popcornandsodaonline.adapters.Actor_Movies_Adapter;
+import com.example.popcornandsodaonline.adapters.Productor_Movies_Adapter;
+import com.example.popcornandsodaonline.models.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,9 +21,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
+public class DataParser_Actors_Movies extends AsyncTask<Void, Void, Integer> {
 
-    private List<Actor> list = new ArrayList<>();
+    private List<Movie> list = new ArrayList<>();
 
     ProgressDialog pd;
     public Context c;
@@ -35,7 +36,7 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
 
     String list_categories = "";
 
-    public DataParser_Movies_Actors(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
+    public DataParser_Actors_Movies(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;
         this.jsonData = jsonData;
         this.activity = activity;
@@ -69,8 +70,8 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
 
 
             //Call Adapter
-            Movie_Actors_Adapter actors_details_adapter = new Movie_Actors_Adapter(this.c, list);
-            recyclerView.setAdapter(actors_details_adapter);
+            Actor_Movies_Adapter production_details_adapter = new Actor_Movies_Adapter(this.c, list);
+            recyclerView.setAdapter(production_details_adapter);
         }
     }
 
@@ -85,23 +86,25 @@ public class DataParser_Movies_Actors extends AsyncTask<Void, Void, Integer> {
             for(int i = 0; i<jsonArray.length();i++){
                 jsonObject = jsonArray.getJSONObject(i);
 
-                String name_actor = jsonObject.getString("name_actor");
-                String cover_actor = jsonObject.getString("cover_actor");
-                int id_actor = jsonObject.getInt("id_actor");
-                String nationality = jsonObject.getString("nationality");
-                String description = jsonObject.getString("actor_description");
-                String birthday = (String) jsonObject.getString("birthday");
+                String name_movie = jsonObject.getString("name_movie");
+                String cover_movie = jsonObject.getString("cover_movie");
+                int id_movie = jsonObject.getInt("id_movie");
+                float rating = (float) jsonObject.getDouble("rating");
+                int year = jsonObject.getInt("year_movie");
+                String description = jsonObject.getString("description_movie");
+                String trailer_link = jsonObject.getString("trailer_link");
 
-                Actor actor =  new Actor();
+                Movie movie =  new Movie();
 
-                actor.setName_actor(name_actor);
-                actor.setCover_actor(cover_actor);
-                actor.setId_actor(id_actor);
-                actor.setNationality(nationality);
-                actor.setDescription(description);
-                actor.setBirthday(birthday);
+                movie.setCover_image_movie(cover_movie);
+                movie.setName_movie(name_movie);
+                movie.setId_movie(id_movie);
+                movie.setRating_movie(rating);
+                movie.setYear_movie(year);
+                movie.setDescription_movie(description);
+                movie.setLink_trailer_filme(trailer_link);
 
-                list.add(actor);
+                list.add(movie);
 
                 resultado = 1;
 

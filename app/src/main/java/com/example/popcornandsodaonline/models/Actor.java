@@ -6,13 +6,15 @@ public class Actor {
     private String nationality;
     private String description;
     private String cover_actor;
+    private String birthday;
 
-    public Actor(int id_actor, String name_actor, String nationality, String description, String cover_actor) {
+    public Actor(int id_actor, String name_actor, String nationality, String description, String cover_actor, String birthday) {
         this.id_actor = id_actor;
         this.name_actor = name_actor;
         this.nationality = nationality;
         this.description = description;
         this.cover_actor = cover_actor;
+        this.birthday = birthday;
     }
 
     public Actor(){}
@@ -55,5 +57,13 @@ public class Actor {
 
     public void setCover_actor(String cover_actor) {
         this.cover_actor = cover_actor;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }
