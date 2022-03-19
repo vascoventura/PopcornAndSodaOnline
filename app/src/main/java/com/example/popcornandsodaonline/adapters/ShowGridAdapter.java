@@ -1,6 +1,9 @@
 package com.example.popcornandsodaonline.adapters;
 
+import static com.example.popcornandsodaonline.database.DataParser_Shows.ID_SHOW;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Movie;
 import com.example.popcornandsodaonline.models.Show;
+import com.example.popcornandsodaonline.ui.Details_Shows;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,7 +35,6 @@ public class ShowGridAdapter extends BaseAdapter implements View.OnClickListener
         this.context = context;
         this.showsList = showsList;
     }
-
 
     @Override
     public int getCount() {
@@ -54,12 +57,12 @@ public class ShowGridAdapter extends BaseAdapter implements View.OnClickListener
         System.out.println("ID DA SERIE: " + showsList.get(view.getId()).getId_show());
 
         Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
-        /*long idFilme = row.getId();
+        int idShow = showsList.get(view.getId()).getId_show();
         Context context = view.getContext();
         Intent intent = new Intent();
-        //intent.setClass(context, DetailActivityMovie.class);
-        intent.putExtra(ID_FILME, idFilme);
-        context.startActivity(intent);*/
+        intent.setClass(context, Details_Shows.class);
+        intent.putExtra(ID_SHOW, idShow);
+        context.startActivity(intent);
     }
 
     @Override

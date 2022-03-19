@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ProductorGridAdapter extends BaseAdapter implements View.OnClickListener {
+public class ProductorGridAdapter extends BaseAdapter{
 
     Context context;
 
@@ -50,19 +50,6 @@ public class ProductorGridAdapter extends BaseAdapter implements View.OnClickLis
     @Override
     public long getItemId(int position) {
         return position;
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        System.out.println("ID DO PRODUTOR: " + productorsList.get(view.getId()).getId_productor());
-
-        int idProductor = productorsList.get(view.getId()).getId_productor();
-        Context context = view.getContext();
-        Intent intent = new Intent();
-        intent.setClass(context, Details_Productions.class);
-        intent.putExtra(ID_PRODUCTION, idProductor);
-        context.startActivity(intent);
     }
 
     @Override

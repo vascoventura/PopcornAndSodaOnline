@@ -1,9 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Details_Shows">
+    tools:context=".ui.Details_Shows"
+    android:background="@color/accent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/sliderPage_Shows"
+            android:layout_width="match_parent"
+            android:layout_height="309dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[0]"
+            android:contentDescription="TODO" />
+
+
+        <ImageView
+            android:id="@+id/imageViewGradiente"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00C08A8A"
+            android:src="@drawable/gradient"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Shows"
+            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Shows"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sliderPage_Shows"
+            app:layout_constraintTop_toTopOf="@+id/sliderPage_Shows"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="TODO" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/detail_show_trailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_trailer"
+            app:backgroundTint="#00BCD4"
+            app:layout_constraintStart_toEndOf="@+id/botao_visto_shows"
+            app:layout_constraintTop_toTopOf="@+id/botao_visto_shows"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/imageViewCapaShow"
+            android:layout_width="137dp"
+            android:layout_height="188dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:transitionName="=sharedName"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Shows"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Shows"
+            app:srcCompat="@drawable/filmes"
+            tools:ignore="ImageContrastCheck"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/detail_nome_serie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/imageView_show_classificacao"
+            app:layout_constraintTop_toBottomOf="@+id/botao_favorito_show" />
+
+        <TextView
+            android:id="@+id/detail_show_cathegory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/imageViewCapaShow"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_show_classificacao" />
+
+        <ImageView
+            android:id="@+id/imageView_show_classificacao"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCapaShow"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewCapaShow"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaShow"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewCapaShow"
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/detail_show_classificacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:fontFamily="sans-serif-black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_show_classificacao"
+            app:layout_constraintEnd_toEndOf="@+id/imageView_show_classificacao"
+            app:layout_constraintStart_toStartOf="@+id/imageView_show_classificacao"
+            app:layout_constraintTop_toTopOf="@+id/imageView_show_classificacao"
+            app:layout_constraintVertical_bias="0.53"
+            tools:ignore="SmallSp"
+            tools:text="4.9" />
+
+        <TextView
+            android:id="@+id/detail_show_ano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/detail_nome_serie"
+            app:layout_constraintTop_toBottomOf="@+id/detail_nome_serie" />
+
+        <TextView
+            android:id="@+id/detail_show_ano_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/detail_show_ano"
+            app:layout_constraintTop_toTopOf="@+id/detail_show_ano" />
+
+        <TextView
+            android:id="@+id/detail_show_descricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:lineSpacingExtra="8dp"
+            android:text="Teste"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/detail_show_cathegory"
+            app:layout_constraintTop_toBottomOf="@+id/detail_show_cathegory" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao_favorito_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            android:src="@drawable/ic_favorite"
+            app:backgroundTint="#00BCD4"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Shows"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaShow"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Shows"
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao_visto_shows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:backgroundTint="#00BCD4"
+            android:src="@drawable/ic_baseline_remove_red_eye_24"
+            app:layout_constraintStart_toEndOf="@+id/botao_favorito_show"
+            app:layout_constraintTop_toTopOf="@+id/botao_favorito_show"
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Production"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/detail_show_descricao"
+            app:layout_constraintTop_toBottomOf="@+id/detail_show_descricao" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/production_show_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Cast"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/production_show_rv"
+            app:layout_constraintTop_toBottomOf="@+id/production_show_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actor_show_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -31,11 +31,8 @@ public class DataParser_Actors_Shows extends AsyncTask<Void, Void, Integer> {
     int resultado = 0;
     String jsonData;
     private Activity activity;
-    TextView textView;
-    ImageView imageView;
     RecyclerView recyclerView;
 
-    String list_categories = "";
 
     public DataParser_Actors_Shows(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;

@@ -25,7 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ActorGridAdapter extends BaseAdapter implements View.OnClickListener {
+public class ActorGridAdapter extends BaseAdapter{
 
     Context context;
 
@@ -54,16 +54,6 @@ public class ActorGridAdapter extends BaseAdapter implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View view) {
-        int idActor = actorsList.get(view.getId()).getId_actor();
-        Context context = view.getContext();
-        Intent intent = new Intent();
-        intent.setClass(context, Details_Actors.class);
-        intent.putExtra(ID_ACTOR, idActor);
-        context.startActivity(intent);
-    }
-
-    @Override
     public View getView(int position, View view, ViewGroup parent) {
         if(view==null){
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -76,7 +66,6 @@ public class ActorGridAdapter extends BaseAdapter implements View.OnClickListene
             final Actor actor = actorsList.get(position);
             try{
                 URL imageurl = new URL(ConnectionDb.CONECTIONIP + actor.getCover_actor());
-                System.out.println(imageurl.toString());
                 Glide.with(context).load(imageurl).into(imageCover);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

@@ -30,12 +30,9 @@ public class DataParser_Productors_Shows extends AsyncTask<Void, Void, Integer> 
     public Context c;
     int resultado = 0;
     String jsonData;
-    private Activity activity;
-    TextView textView;
-    ImageView imageView;
+    Activity activity;
     RecyclerView recyclerView;
 
-    String list_categories = "";
 
     public DataParser_Productors_Shows(Context c, String jsonData, Activity activity,RecyclerView recyclerView){
         this.c = c;
@@ -90,12 +87,23 @@ public class DataParser_Productors_Shows extends AsyncTask<Void, Void, Integer> 
                 String name_movie = jsonObject.getString("name_show");
                 String cover_movie = jsonObject.getString("cover_show");
                 int id_movie = jsonObject.getInt("id_show");
+                float rating = (float) jsonObject.getDouble("rating");
+                int begin_year = jsonObject.getInt("begin_year_show");
+                int end_year = jsonObject.getInt("end_year_show");
+                String description = jsonObject.getString("description_show");
+                String trailer_link = jsonObject.getString("trailer_link");
+
 
                 Show show =  new Show();
 
                 show.setCover_show(cover_movie);
                 show.setName_show(name_movie);
                 show.setId_show(id_movie);
+                show.setRating(rating);
+                show.setBegin_year(begin_year);
+                show.setEnd_year(end_year);
+                show.setDescription_show(description);
+                show.setTrailer_show(trailer_link);
 
                 list.add(show);
 
