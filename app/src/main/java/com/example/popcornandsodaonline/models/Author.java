@@ -6,6 +6,7 @@ public class Author {
     private String nationality_author;
     private String description_author;
     private String cover_author;
+    private String birthday;
 
     public Author() {
     }
@@ -56,5 +57,13 @@ public class Author {
 
     public void setCover_author(String cover_author) {
         this.cover_author = cover_author;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

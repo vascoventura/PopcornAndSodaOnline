@@ -3,7 +3,10 @@ package com.example.popcornandsodaonline.database;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -11,6 +14,8 @@ import com.example.popcornandsodaonline.adapters.BookGridAdapter;
 import com.example.popcornandsodaonline.adapters.MovieGridAdapter;
 import com.example.popcornandsodaonline.models.Book;
 import com.example.popcornandsodaonline.models.Movie;
+import com.example.popcornandsodaonline.ui.Details_Books;
+import com.example.popcornandsodaonline.ui.Details_Movies;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +24,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
+    public static final String ID_BOOK = "ID_BOOK";
+    public static final String RATING_BOOK = "RATING_BOOK";
+    public static final String NAME_BOOK = "NAME_BOOK";
+    public static final String YEAR_BOOK = "YEAR_BOOK";
+    public static final String DESCRIPTION_BOOK = "DESCRIPTION_BOOK";
+    public static final String COVER_BOOK = "COVER_BOOK";
+    public static final String BACKGROUND_BOOK = "BACKGROUND_BOOK";
+
+
     ProgressDialog pd;
     Context c;
     int resultado = 0;
@@ -63,6 +77,37 @@ public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
 
             BookGridAdapter bookGridAdapter = new BookGridAdapter(this.c, booksArrayList);
             gv.setAdapter(bookGridAdapter);
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    Book book = booksArrayList.get(i);
+                    int id_book = book.getId_book();
+                    String name_book = book.getName_book();
+                    float rating = (float) book.getRating_book();
+                    int year = book.getYear_book();
+                    String description = book.getDescription_book();
+                    String cover_book = book.getCover_book();
+                    String background_book = book.getBackground_book();
+
+                    Toast.makeText(c, name_book, Toast.LENGTH_SHORT).show();
+
+                    Context context = view.getContext();
+
+                    Intent intent = new Intent();
+                    Details_Books dm = new Details_Books();
+                    intent.setClass(context, dm.getClass());
+
+                    intent.putExtra(ID_BOOK, id_book);
+                    intent.putExtra(NAME_BOOK, name_book);
+                    intent.putExtra(YEAR_BOOK, String.valueOf(year));
+                    intent.putExtra(DESCRIPTION_BOOK, description);
+                    intent.putExtra(COVER_BOOK, cover_book);
+                    intent.putExtra(BACKGROUND_BOOK, background_book);
+                    intent.putExtra(RATING_BOOK, String.valueOf(rating));
+                    context.startActivity(intent);
+        }});
         }
     }
 

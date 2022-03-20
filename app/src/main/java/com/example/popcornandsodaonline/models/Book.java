@@ -11,16 +11,6 @@ public class Book {
 
     public Book(){}
 
-    public Book(int id_book, String name_book, String cover_book, String background_book, double rating_book, int year_book, String description_book) {
-        this.id_book = id_book;
-        this.name_book = name_book;
-        this.cover_book = cover_book;
-        this.background_book = background_book;
-        this.rating_book = rating_book;
-        this.year_book = year_book;
-        this.description_book = description_book;
-    }
-
     public String getBackground_book() {
         return background_book;
     }
@@ -76,6 +66,8 @@ public class Book {
     public void setDescription_book(String description_book) {
         this.description_book = description_book;
     }
+
+
 
 
 }

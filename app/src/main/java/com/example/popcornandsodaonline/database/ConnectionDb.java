@@ -7,11 +7,8 @@ import java.net.URL;
 
 public class ConnectionDb {
 
-
-
     public static String CONECTIONIP = "https://popcornsoda.000webhostapp.com/";
     public static String PHP_DIRECTORY = "";
-    public static final String IMAGES_DIRECTORY = "images/";
 
     public static String PHP_LOGIN_FILE = "login.php";
     public static String PHP_SIGNUP_FILE = "signup.php";
@@ -35,6 +32,7 @@ public class ConnectionDb {
     public static final String PHP_ACTORS_MOVIE_FILE = "actors_movie_select.php/?id_actor=";
     public static final String PHP_ACTORS_SHOW_FILE = "actors_show_select.php/?id_actor=";
     public static final String PHP_SHOW_ACTORS_FILE = "show_actors_select.php/?id_show=";
+    public static final String PHP_BOOK_AUTHORS_FILE = "book_authors_select.php/?id_book=";
 
     public static HttpURLConnection connect(String urlAddress){
 

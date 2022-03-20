@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context=".ui.Details_Books">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sliderPage_Books"
+            android:layout_width="match_parent"
+            android:layout_height="309dp"
+            android:contentDescription="@string/_todo"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/filmes" />
+
+        <ImageView
+            android:id="@+id/imageViewGradiente"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00C08A8A"
+            android:contentDescription="TODO"
+            android:src="@drawable/gradient"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Books"
+            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Books"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sliderPage_Books"
+            app:layout_constraintTop_toTopOf="@+id/sliderPage_Books"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <ImageView
+            android:id="@+id/imageViewCapaBook"
+            android:layout_width="137dp"
+            android:layout_height="188dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:transitionName="=sharedName"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Books"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Books"
+            app:srcCompat="@drawable/filmes"
+            tools:ignore="ImageContrastCheck"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/detail_nome_book"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/imageView_book_classificacao"
+            app:layout_constraintTop_toBottomOf="@+id/botao_favorito_book" />
+
+
+        <TextView
+            android:id="@+id/detail_book_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/detail_nome_book"
+            app:layout_constraintTop_toBottomOf="@+id/detail_nome_book" />
+
+
+        <TextView
+            android:id="@+id/detail_book_descricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="8dp"
+            android:text="Teste"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/imageViewCapaBook"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_book_classificacao" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao_favorito_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            android:src="@drawable/ic_favorite"
+            app:backgroundTint="#00BCD4"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Books"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaBook"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Books"
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao_lido_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            android:src="@drawable/ic_book"
+            app:backgroundTint="#00BCD4"
+            app:layout_constraintStart_toEndOf="@+id/botao_favorito_book"
+            app:layout_constraintTop_toTopOf="@+id/botao_favorito_book"
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <ImageView
+            android:id="@+id/imageView_book_classificacao"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewCapaBook"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewCapaBook"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaBook"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewCapaBook"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <TextView
+            android:id="@+id/detail_book_classificacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:fontFamily="sans-serif-black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_book_classificacao"
+            app:layout_constraintEnd_toEndOf="@+id/imageView_book_classificacao"
+            app:layout_constraintStart_toStartOf="@+id/imageView_book_classificacao"
+            app:layout_constraintTop_toTopOf="@+id/imageView_book_classificacao"
+            app:layout_constraintVertical_bias="0.53"
+            tools:ignore="SmallSp"
+            tools:text="4.9" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Authors"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/detail_book_descricao"
+            app:layout_constraintTop_toBottomOf="@+id/detail_book_descricao" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/book_authors_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

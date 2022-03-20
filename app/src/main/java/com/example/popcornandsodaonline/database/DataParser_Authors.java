@@ -19,6 +19,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class DataParser_Authors extends AsyncTask<Void, Void, Integer> {
+    public static String ID_AUTHOR = "ID_AUTHOR";
+    public static String NAME_AUTHOR = "NAME_AUTHOR";
+    public static String COVER_AUTHOR = "COVER_AUTHOR";
+    public static String NATIONALITY = "NATIONALITY";
+    public static String BIRTHDAY_AUTHOR = "BIRTHDAY_AUTHOR";
+    public static String DESCRIPTION_AUTHOR = "DESCRIPTION_AUTHOR";
+
     ProgressDialog pd;
     Context c;
     int resultado = 0;
