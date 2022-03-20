@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/accent"
     tools:context=".ui.Details_Authors">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/sliderPage_Authors"
+            android:layout_width="match_parent"
+            android:layout_height="309dp"
+            android:contentDescription="@string/_todo"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/filmes" />
+
+        <ImageView
+            android:id="@+id/imageViewGradiente"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00C08A8A"
+            android:contentDescription="TODO"
+            android:src="@drawable/gradient"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Authors"
+            app:layout_constraintEnd_toEndOf="@+id/sliderPage_Authors"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sliderPage_Authors"
+            app:layout_constraintTop_toTopOf="@+id/sliderPage_Authors"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <ImageView
+            android:id="@+id/imageViewCapaAuthor"
+            android:layout_width="137dp"
+            android:layout_height="188dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:transitionName="=sharedName"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Authors"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Authors"
+            app:srcCompat="@drawable/filmes"
+            tools:ignore="ImageContrastCheck"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/detail_author_nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/botao_favorito_author" />
+
+
+        <TextView
+            android:id="@+id/detail_author_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/detail_author_nome"
+            app:layout_constraintTop_toBottomOf="@+id/detail_author_nome" />
+
+        <TextView
+            android:id="@+id/detail_author_nationality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/detail_author_birthday"
+            app:layout_constraintTop_toBottomOf="@+id/detail_author_birthday" />
+
+        <TextView
+            android:id="@+id/detail_author_descricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="8dp"
+            android:text="Teste"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/imageViewCapaAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/detail_author_nationality" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao_favorito_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            android:src="@drawable/ic_favorite"
+            app:backgroundTint="#00BCD4"
+            app:layout_constraintBottom_toBottomOf="@+id/sliderPage_Authors"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCapaAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/sliderPage_Authors"
+            tools:ignore="VectorDrawableCompat,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Books"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/detail_author_descricao"
+            app:layout_constraintTop_toBottomOf="@+id/detail_author_descricao" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/author_books_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

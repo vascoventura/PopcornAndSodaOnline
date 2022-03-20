@@ -7,6 +7,7 @@ import java.net.URL;
 
 public class ConnectionDb {
 
+
     public static String CONECTIONIP = "https://popcornsoda.000webhostapp.com/";
     public static String PHP_DIRECTORY = "";
 
@@ -22,6 +23,7 @@ public class ConnectionDb {
     public static final String PHP_BACKGROUND_SHOWS_FILE = "show_back_select.php/?id_show=";
     public static final String PHP_BACKGROUND_PRODUCTIONS_FILE = "production_back_select.php/?id_production=";
     public static final String PHP_BACKGROUND_ACTORS_FILE = "actor_back_select.php/?id_actor=";
+    public static final String PHP_BACKGROUND_AUTHORS_FILE = "author_back_select.php/?id_author=";
     public static final String PHP_CATEGORY_NAME_MOVIE_FILE = "category_name_movie.php/?id_filme=";
     public static final String PHP_CATEGORY_NAME_SHOW_FILE = "category_name_show.php/?id_show=";
     public static final String PHP_MOVIE_PRODUCTOR_FILE = "movie_productors_select.php/?id_filme=";
@@ -33,6 +35,7 @@ public class ConnectionDb {
     public static final String PHP_ACTORS_SHOW_FILE = "actors_show_select.php/?id_actor=";
     public static final String PHP_SHOW_ACTORS_FILE = "show_actors_select.php/?id_show=";
     public static final String PHP_BOOK_AUTHORS_FILE = "book_authors_select.php/?id_book=";
+    public static final String PHP_AUTHOR_BOOKS_FILE = "author_books_select.php/?id_author=";
 
     public static HttpURLConnection connect(String urlAddress){
 

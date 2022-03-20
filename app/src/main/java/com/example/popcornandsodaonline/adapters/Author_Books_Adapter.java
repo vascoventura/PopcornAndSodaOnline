@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.popcornandsodaonline.R;
 import com.example.popcornandsodaonline.database.ConnectionDb;
 import com.example.popcornandsodaonline.models.Author;
+import com.example.popcornandsodaonline.ui.Details_Authors;
 import com.example.popcornandsodaonline.ui.Details_Books;
 
 import java.net.MalformedURLException;
@@ -73,6 +74,7 @@ public class Author_Books_Adapter extends RecyclerView.Adapter<Author_Books_Adap
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     int idAuthor = (int) list.get(getAdapterPosition()).getId_author();
                     String capaAuthor = list.get(getAdapterPosition()).getCover_author();
                     String descricaoAuthor = list.get(getAdapterPosition()).getDescription_author();
@@ -80,10 +82,9 @@ public class Author_Books_Adapter extends RecyclerView.Adapter<Author_Books_Adap
                     String year = list.get(getAdapterPosition()).getBirthday();
                     String nationality = list.get(getAdapterPosition()).getNationality_author();
 
-
                     Context context = v.getContext();
                     Intent intent = new Intent();
-                    intent.setClass(context, Details_Books.class);
+                    intent.setClass(context, Details_Authors.class);
                     intent.putExtra(ID_AUTHOR, idAuthor);
                     intent.putExtra(COVER_AUTHOR, capaAuthor);
                     intent.putExtra(NAME_AUTHOR,nameAuthor);

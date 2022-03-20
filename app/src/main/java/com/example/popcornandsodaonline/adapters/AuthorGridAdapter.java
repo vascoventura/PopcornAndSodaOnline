@@ -19,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class AuthorGridAdapter extends BaseAdapter implements View.OnClickListener {
+public class AuthorGridAdapter extends BaseAdapter {
 
     Context context;
 
@@ -46,20 +46,6 @@ public class AuthorGridAdapter extends BaseAdapter implements View.OnClickListen
     @Override
     public long getItemId(int position) {
         return position;
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        System.out.println("ID DO AUTHOR: " + authorsList.get(view.getId()).getId_author());
-
-        Toast.makeText(this.context, "aqui!", Toast.LENGTH_LONG).show();
-        /*long idFilme = row.getId();
-        Context context = view.getContext();
-        Intent intent = new Intent();
-        //intent.setClass(context, DetailActivityMovie.class);
-        intent.putExtra(ID_FILME, idFilme);
-        context.startActivity(intent);*/
     }
 
     @Override

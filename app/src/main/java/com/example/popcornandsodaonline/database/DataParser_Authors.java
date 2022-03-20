@@ -3,7 +3,10 @@ package com.example.popcornandsodaonline.database;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -11,6 +14,8 @@ import com.example.popcornandsodaonline.adapters.ActorGridAdapter;
 import com.example.popcornandsodaonline.adapters.AuthorGridAdapter;
 import com.example.popcornandsodaonline.models.Actor;
 import com.example.popcornandsodaonline.models.Author;
+import com.example.popcornandsodaonline.ui.Details_Actors;
+import com.example.popcornandsodaonline.ui.Details_Authors;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,6 +73,36 @@ public class DataParser_Authors extends AsyncTask<Void, Void, Integer> {
 
             AuthorGridAdapter authorGridAdapter = new AuthorGridAdapter(this.c, authorsArrayList);
             gv.setAdapter(authorGridAdapter);
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Author author = authorsArrayList.get(i);
+
+                    int id_author = author.getId_author();
+                    String name_author = author.getName_author();
+                    String birthday = author.getBirthday();
+                    String description = author.getDescription_author();
+                    String cover_author = author.getCover_author();
+                    String nationality = author.getNationality_author();
+
+                    Toast.makeText(c, name_author, Toast.LENGTH_SHORT).show();
+
+                    Context context = view.getContext();
+
+                    Intent intent = new Intent();
+                    Details_Authors dp = new Details_Authors();
+                    intent.setClass(context, dp.getClass());
+
+                    intent.putExtra(ID_AUTHOR, id_author);
+                    intent.putExtra(NAME_AUTHOR, name_author);
+                    intent.putExtra(BIRTHDAY_AUTHOR, birthday);
+                    intent.putExtra(DESCRIPTION_AUTHOR, description);
+                    intent.putExtra(COVER_AUTHOR, cover_author);
+                    intent.putExtra(NATIONALITY, nationality);
+                    context.startActivity(intent);
+                }
+            });
+
         }
     }
 

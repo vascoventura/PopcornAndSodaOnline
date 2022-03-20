@@ -6,7 +6,8 @@ public class Book {
     private String cover_book;
     private String background_book;
     private double rating_book;
-    private int year_book;
+    private String year;
+
     private String description_book;
 
     public Book(){}
@@ -51,14 +52,6 @@ public class Book {
         this.rating_book = rating_book;
     }
 
-    public int getYear_book() {
-        return year_book;
-    }
-
-    public void setYear_book(int year_book) {
-        this.year_book = year_book;
-    }
-
     public String getDescription_book() {
         return description_book;
     }
@@ -67,7 +60,11 @@ public class Book {
         this.description_book = description_book;
     }
 
+    public String getYear() {
+        return year;
+    }
 
-
-
+    public void setYear(String year) {
+        this.year = year;
+    }
 }

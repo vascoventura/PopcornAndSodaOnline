@@ -86,7 +86,7 @@ public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
                     int id_book = book.getId_book();
                     String name_book = book.getName_book();
                     float rating = (float) book.getRating_book();
-                    int year = book.getYear_book();
+                    String year = book.getYear();
                     String description = book.getDescription_book();
                     String cover_book = book.getCover_book();
                     String background_book = book.getBackground_book();
@@ -125,7 +125,7 @@ public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
                 int id = jsonObject.getInt("id_book");
                 String name = jsonObject.getString("name_book");
                 float rating = (float) jsonObject.getDouble("rating");
-                int year = jsonObject.getInt("year_book");
+                String year = jsonObject.getString("year_book");
                 String description = jsonObject.getString("description_book");
                 String cover_book = jsonObject.getString("cover_book");
                 String background_book = jsonObject.getString("background_book");
@@ -134,21 +134,10 @@ public class DataParser_Books extends AsyncTask<Void, Void, Integer> {
                 book.setId_book(id);
                 book.setName_book(name);
                 book.setRating_book(rating);
-                book.setYear_book(year);
+                book.setYear(year);
                 book.setDescription_book(description);
                 book.setCover_book(cover_book);
                 book.setBackground_book(background_book);
-
-                System.out.println("");
-                System.out.println("Livro: " + String.valueOf(i + 1));
-                System.out.println("");
-                System.out.println(id);
-                System.out.println(name);
-                System.out.println(rating);
-                System.out.println(year);
-                System.out.println(description);
-                System.out.println(cover_book);
-                System.out.println(background_book);
 
                 booksArrayList.add(book);
 
